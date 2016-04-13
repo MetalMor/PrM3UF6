@@ -6,9 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import props.Arma;
 import props.Habilidad;
 import props.Medio;
+import util.Utils;
 
 /**
  *
@@ -28,25 +30,16 @@ public class Personaje implements Serializable {
     private int def;
     private Arma arma;
     private Medio medio;
-    private Habilidad habilidad = Habilidad.NINGUNA;
+    private Habilidad habilidad;
     private Image imagen;
     private boolean readyFlag;
 
     public Personaje() { }
-
-    public Personaje(String nombre, int atk, int def, Medio med) {
-        this.nombre = nombre;
-        this.atk = atk;
-        this.def = def;
+    
+    public boolean isNull() {
+        return Utils.isNull(this);
     }
     
-    public Personaje(String nombre, int atk, int def, Habilidad hab) {
-        this.nombre = nombre;
-        this.habilidad = hab;
-        this.atk = atk;
-        this.def = def;
-    }
-
     public String getNombre() {
         return nombre;
     }
@@ -57,6 +50,26 @@ public class Personaje implements Serializable {
 
     public int getDef() {
         return def;
+    }
+
+    public Arma getArma() {
+        return arma;
+    }
+
+    public Medio getMedio() {
+        return medio;
+    }
+
+    public Habilidad getHabilidad() {
+        return habilidad;
+    }
+
+    public Image getImagen() {
+        return imagen;
+    }
+
+    public boolean isReadyFlag() {
+        return readyFlag;
     }
 
     public void setNombre(String nombre) {
@@ -71,12 +84,32 @@ public class Personaje implements Serializable {
         this.def = def;
     }
 
+    public void setArma(Arma a) {
+        arma = a;
+    }
+
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void setMedio(Medio medio) {
+        this.medio = medio;
+    }
+
+    public void setHabilidad(Habilidad habilidad) {
+        this.habilidad = habilidad;
+    }
+
+    public void setImagen(Image imagen) {
+        this.imagen = imagen;
+    }
+
+    public void setReadyFlag(boolean readyFlag) {
+        this.readyFlag = readyFlag;
     }
 
     @Override
@@ -88,15 +121,11 @@ public class Personaje implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Personaje)) {
             return false;
         }
         Personaje other = (Personaje) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+        return this.nombre == other.nombre;
     }
 
     @Override

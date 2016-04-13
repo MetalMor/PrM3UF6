@@ -20,17 +20,17 @@ public class Ranking implements Serializable {
     private Long id;
     
     private int victorias;
+    private int empates;
     private int derrotas;
 
     public Ranking() { }
 
-    public Ranking(int victorias, int derrotas) {
-        this.victorias = victorias;
-        this.derrotas = derrotas;
-    }
-
     public int getVictorias() {
         return victorias;
+    }
+
+    public int getEmpates() {
+        return empates;
     }
 
     public int getDerrotas() {
@@ -39,6 +39,10 @@ public class Ranking implements Serializable {
 
     public void setVictorias(int victorias) {
         this.victorias = victorias;
+    }
+
+    public void setEmpates(int empates) {
+        this.empates = empates;
     }
 
     public void setDerrotas(int derrotas) {

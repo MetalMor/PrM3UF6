@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import util.Utils;
 
 /**
  *
@@ -25,6 +26,52 @@ public class Arma implements Serializable {
     private int def;
     private Image imagen;
 
+    public Arma(String nombre, int atk, int def, Image imagen) {
+        this.nombre = nombre;
+        this.atk = atk;
+        this.def = def;
+        this.imagen = imagen;
+    }
+
+    public Arma() {
+    }
+
+    public boolean isNull() {
+        return Utils.isNull(this);
+    }
+    
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getAtk() {
+        return atk;
+    }
+
+    public int getDef() {
+        return def;
+    }
+
+    public Image getImagen() {
+        return imagen;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setAtk(int atk) {
+        this.atk = atk;
+    }
+
+    public void setDef(int def) {
+        this.def = def;
+    }
+
+    public void setImagen(Image imagen) {
+        this.imagen = imagen;
+    }
+    
     public Long getId() {
         return id;
     }

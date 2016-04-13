@@ -1,11 +1,13 @@
 package beans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import util.Utils;
 
 /**
  *
@@ -21,6 +23,11 @@ public class Equipo implements Serializable {
     private Long id;
 
     private List<Personaje> miembros;
+    private int potencial;
+    
+    public Equipo() {
+        miembros = new ArrayList<>();
+    }
     
     public int calculaPotencial() {
         int sum = 0;
@@ -28,6 +35,18 @@ public class Equipo implements Serializable {
             sum += (miembro.getAtk()+miembro.getDef())/2;
         }
         return sum/miembros.size();
+    }
+
+    public boolean isNull() {
+        return Utils.isNull(this);
+    }
+    
+    public List<Personaje> getMiembros() {
+        return miembros;
+    }
+
+    public void setMiembros(List<Personaje> miembros) {
+        this.miembros = miembros;
     }
     
     public Long getId() {

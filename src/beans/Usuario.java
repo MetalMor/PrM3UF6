@@ -1,10 +1,13 @@
 package beans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import util.Utils;
 
 /**
  *
@@ -23,11 +26,6 @@ public abstract class Usuario implements Serializable {
     private String clave;
 
     public Usuario() {
-    }
-
-    public Usuario(String nombre, String clave) {
-        this.nombre = nombre;
-        this.clave = clave;
     }
 
     public void login() {
@@ -58,6 +56,10 @@ public abstract class Usuario implements Serializable {
         this.id = id;
     }
 
+    public boolean isNull() {
+        return Utils.isNull(this);
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;

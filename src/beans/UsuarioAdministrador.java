@@ -1,5 +1,11 @@
 package beans;
 
+import java.awt.Image;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import jpa.ServicioArma;
+import jpa.ServicioUsuario;
 import props.Arma;
 
 /**
@@ -9,20 +15,33 @@ import props.Arma;
  */
 public class UsuarioAdministrador extends Usuario {
     
-    public void crearArma() {
-        // TODO
+    private ServicioUsuario su;
+    private ServicioArma sa;
+    
+    public UsuarioAdministrador() {
+        super();
+        EntityManagerFactory emfu = Persistence.createEntityManagerFactory("ServicioUsuario");
+        EntityManager emu = emfu.createEntityManager();
+        EntityManagerFactory emfa = Persistence.createEntityManagerFactory("ServicioPersonaje");
+        EntityManager ema = emfa.createEntityManager();
+        su = new ServicioUsuario(emu);
+        sa = new ServicioArma(ema);
     }
     
-    public void editarArma() {
+    public void crearArma(String n, int atk, int def, Image img) {
+        sa.crear(n, atk, def, img);
+    }
+    
+    public void editarArma(int id) {
         // TODO
     }
     
     public void eliminarArma(Arma a) {
-        // TODO
+        sa.eliminar(a.getId());
     }
     
-    public void crearUsuario() {
-        // TODO
+    public void crearUsuario(String n, String c) {
+        su.crear(n, c);
     }
     
     public void editarUsuario() {
@@ -30,7 +49,7 @@ public class UsuarioAdministrador extends Usuario {
     }
     
     public void eliminarUsuario(Usuario u) {
-        // TODO
+        su.eliminar(u.getId());
     }
     
 }
