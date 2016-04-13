@@ -5,7 +5,7 @@ package beans;
  * @author mor
  * @version 130416
  */
-public class UsuarioAdministrador {
+public class UsuarioAdministrador extends Usuario {
     
     public void crearUsuario() {
         // TODO
