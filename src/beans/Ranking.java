@@ -1,10 +1,14 @@
 package beans;
 
 import java.io.Serializable;
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import util.Utils;
 
 /**
@@ -13,11 +17,11 @@ import util.Utils;
  * @version 130416
  */
 @Entity
+@Access(AccessType.PROPERTY)
+@Table(name = "RANKING", schema = "FIGHTCLUB")
 public class Ranking implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
     private int victorias;
@@ -42,14 +46,17 @@ public class Ranking implements Serializable {
         return Utils.isNull(this);
     }
     
+    @Column(name="RANKING_VICTORIAS")
     public int getVictorias() {
         return victorias;
     }
 
+    @Column(name="RANKING_EMPATES")
     public int getEmpates() {
         return empates;
     }
 
+    @Column(name="RANKING_DERROTAS")
     public int getDerrotas() {
         return derrotas;
     }
@@ -66,6 +73,8 @@ public class Ranking implements Serializable {
         this.derrotas = derrotas;
     }
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }

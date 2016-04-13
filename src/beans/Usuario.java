@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,8 +24,6 @@ import util.Utils;
 public abstract class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
     private String nombre;
@@ -37,10 +36,12 @@ public abstract class Usuario implements Serializable {
         // TODO
     }
     
+    @Column(name="USUARIO_NOMBRE")
     public String getNombre() {
         return nombre;
     }
 
+    @Column(name="USUARIO_CLAVE")
     public String getClave() {
         return clave;
     }
@@ -53,6 +54,8 @@ public abstract class Usuario implements Serializable {
         this.clave = clave;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }
@@ -79,7 +82,7 @@ public abstract class Usuario implements Serializable {
             return false;
         }
         Usuario other = (Usuario) o;
-        return this.id == null || other.id == null ? this.nombre.equals(other.nombre) : this.id == other.id;
+        return Utils.isNull(this.id) || Utils.isNull(other.id) ? this.nombre.equals(other.nombre) : this.id == other.id;
     }
 
     @Override

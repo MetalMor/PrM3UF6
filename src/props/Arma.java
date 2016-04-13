@@ -2,10 +2,14 @@ package props;
 
 import java.awt.Image;
 import java.io.Serializable;
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import util.Utils;
 
 /**
@@ -14,6 +18,8 @@ import util.Utils;
  * @version 130416
  */
 @Entity
+@Access(AccessType.PROPERTY)
+@Table(name = "ARMA", schema = "FIGHTCLUB")
 public class Arma implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -40,18 +46,22 @@ public class Arma implements Serializable {
         return Utils.isNull(this);
     }
     
+    @Column(name="ARMA_NOMBRE")
     public String getNombre() {
         return nombre;
     }
 
+    @Column(name="ARMA_ATK")
     public int getAtk() {
         return atk;
     }
 
+    @Column(name="ARMA_DEF")
     public int getDef() {
         return def;
     }
 
+    @Column(name="ARMA_IMAGEN")
     public Image getImagen() {
         return imagen;
     }

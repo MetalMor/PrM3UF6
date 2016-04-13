@@ -9,8 +9,4 @@ public class Combate {
     
     public Combate() { }
     
-    public void luchar() {
-        // TODO
-    }
-    
 }

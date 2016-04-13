@@ -2,11 +2,16 @@ package beans;
 
 import java.awt.Image;
 import java.io.Serializable;
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import props.Arma;
 import props.Habilidad;
 import props.Medio;
@@ -18,11 +23,11 @@ import util.Utils;
  * @version 130416
  */
 @Entity
+@Access(AccessType.PROPERTY)
+@Table(name = "PERSONAJE", schema = "FIGHTCLUB")
 public class Personaje implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
     private String nombre;
@@ -33,6 +38,7 @@ public class Personaje implements Serializable {
     private Habilidad habilidad;
     private Image imagen;
     private boolean readyFlag;
+    private Ranking ranking;
 
     public Personaje() { 
         readyFlag = false;
@@ -42,34 +48,50 @@ public class Personaje implements Serializable {
         return Utils.isNull(this);
     }
     
+    @Column(name="PERSONAJE_NOMBRE")
     public String getNombre() {
         return nombre;
     }
 
+    @Column(name="PERSONAJE_ATK")
     public int getAtk() {
         return atk;
     }
 
+    @Column(name="PERSONAJE_DEF")
     public int getDef() {
         return def;
     }
 
+    @ManyToOne(optional=true)
+    @Column(name="PERSONAJE_ARMA")
     public Arma getArma() {
         return arma;
     }
 
+    @ManyToOne
+    @Column(name="PERSONAJE_MEDIO")
     public Medio getMedio() {
         return medio;
     }
 
+    @Column(name="PERSONAJE_HABILIDAD")
     public Habilidad getHabilidad() {
         return habilidad;
     }
 
+    @Column(name="PERSONAJE_IMAGEN")
     public Image getImagen() {
         return imagen;
     }
 
+    @OneToOne
+    @Column(name="PERSONAJE_RANKING")
+    public Ranking getRanking() {
+        return ranking;
+    }
+
+    @Column(name="PERSONAJE_READY")
     public boolean isReadyFlag() {
         return readyFlag;
     }
@@ -90,14 +112,6 @@ public class Personaje implements Serializable {
         arma = a;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public void setMedio(Medio medio) {
         this.medio = medio;
     }
@@ -112,6 +126,20 @@ public class Personaje implements Serializable {
 
     public void setReadyFlag(boolean readyFlag) {
         this.readyFlag = readyFlag;
+    }
+    
+    public void setRanking(Ranking r) {
+        ranking = r;
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Override
