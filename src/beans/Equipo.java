@@ -23,7 +23,6 @@ public class Equipo implements Serializable {
     private Long id;
 
     private List<Personaje> miembros;
-    private int potencial;
     
     public Equipo() {
         miembros = new ArrayList<>();

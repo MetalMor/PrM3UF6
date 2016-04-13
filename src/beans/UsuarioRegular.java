@@ -38,10 +38,6 @@ public class UsuarioRegular extends Usuario {
         return sp.crear(n, atk, def, medio, img);
     }
     
-    public void editarPersonaje() {
-        
-    }
-    
     public void eliminarPersonaje(Personaje p) {
         sp.eliminar(p.getId());
     }

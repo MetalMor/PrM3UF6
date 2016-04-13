@@ -1,0 +1,62 @@
+package jpa;
+
+import beans.Ranking;
+import javax.persistence.EntityManager;
+
+/**
+ *
+ * @author mor
+ * @version 130416
+ */
+public class ServicioRanking {
+    
+    private EntityManager em;
+    
+    public ServicioRanking(EntityManager em) {
+        this.em = em;
+    }
+    
+    public Ranking crear(int victorias, int empates, int derrotas) {
+        Ranking r = new Ranking();
+        r.setVictorias(victorias);
+        r.setEmpates(empates);
+        r.setDerrotas(derrotas);
+        em.persist(r);
+        return r;
+    }
+    
+    public Ranking buscar(long id) {
+        return em.find(Ranking.class, id);
+    }
+    
+    public Ranking victoria(long id) {
+        Ranking r = buscar(id);
+        if (!r.isNull()) {
+            r.addVictoria();
+        }
+        return r;
+    }
+    
+    public Ranking derrota(long id) {
+        Ranking r = buscar(id);
+        if (!r.isNull()) {
+            r.addDerrota();
+        }
+        return r;
+    }
+    
+    public Ranking empate(long id) {
+        Ranking r = buscar(id);
+        if (!r.isNull()) {
+            r.addEmpate();
+        }
+        return r;
+    }
+    
+    public void eliminar(long id) {
+        Ranking r = buscar(id);
+        if(!r.isNull())
+            em.remove(r);
+    }
+    
+}

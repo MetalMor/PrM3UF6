@@ -3,10 +3,13 @@ package beans;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Access;
+import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import util.Utils;
 
 /**
@@ -15,6 +18,8 @@ import util.Utils;
  * @version 130416
  */
 @Entity
+@Access(AccessType.PROPERTY)
+@Table(name = "USUARIO", schema = "FIGHTCLUB")
 public abstract class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -68,15 +73,13 @@ public abstract class Usuario implements Serializable {
     }
 
     @Override
-    public boolean equals(Object object) {
+    public boolean equals(Object o) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Usuario)) {
+        if (!(o instanceof Usuario)) {
             return false;
         }
-        Usuario other = (Usuario) object;
-        if(this.id == null || other.id == null)
-            return this.nombre == other.nombre;
-        return this.id == other.id;
+        Usuario other = (Usuario) o;
+        return this.id == null || other.id == null ? this.nombre.equals(other.nombre) : this.id == other.id;
     }
 
     @Override

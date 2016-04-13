@@ -28,20 +28,20 @@ public class UsuarioAdministrador extends Usuario {
         sa = new ServicioArma(ema);
     }
     
-    public void crearArma(String n, int atk, int def, Image img) {
-        sa.crear(n, atk, def, img);
+    public Arma crearArma(String n, int atk, int def, Image img) {
+        return sa.crear(n, atk, def, img);
     }
     
-    public void editarArma(int id) {
-        // TODO
+    public Arma editarArma(int id, String n, int atk, int def, Image img) {
+        return sa.cambiarStats(id, atk, def, img);
     }
     
     public void eliminarArma(Arma a) {
         sa.eliminar(a.getId());
     }
     
-    public void crearUsuario(String n, String c) {
-        su.crear(n, c);
+    public Usuario crearUsuario(String n, String c) {
+        return su.crear(n, c);
     }
     
     public void editarUsuario() {

@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import util.Utils;
 
 /**
  *
@@ -25,6 +26,22 @@ public class Ranking implements Serializable {
 
     public Ranking() { }
 
+    public void addVictoria() {
+        setVictorias(getVictorias()+1);
+    }
+    
+    public void addDerrota() {
+        setDerrotas(getDerrotas()+1);
+    }
+    
+    public void addEmpate() {
+        setEmpates(getEmpates()+1);
+    }
+    
+    public boolean isNull() {
+        return Utils.isNull(this);
+    }
+    
     public int getVictorias() {
         return victorias;
     }

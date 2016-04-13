@@ -34,7 +34,9 @@ public class Personaje implements Serializable {
     private Image imagen;
     private boolean readyFlag;
 
-    public Personaje() { }
+    public Personaje() { 
+        readyFlag = false;
+    }
     
     public boolean isNull() {
         return Utils.isNull(this);
