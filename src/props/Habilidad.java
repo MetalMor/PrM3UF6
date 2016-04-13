@@ -6,5 +6,5 @@ package props;
  * @version 130416
  */
 public enum Habilidad {
-    VELOCIDAD, KAITO
+    NINGUNA, VELOCIDAD, KAITO
 }

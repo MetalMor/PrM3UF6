@@ -1,4 +1,4 @@
-package beans;
+package props;
 
 import java.awt.Image;
 import java.io.Serializable;
@@ -6,9 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import props.Arma;
-import props.Habilidad;
-import props.Medio;
 
 /**
  *
@@ -16,7 +13,7 @@ import props.Medio;
  * @version 130416
  */
 @Entity
-public class Personaje implements Serializable {
+public class Arma implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -26,50 +23,7 @@ public class Personaje implements Serializable {
     private String nombre;
     private int atk;
     private int def;
-    private Arma arma;
-    private Medio medio;
-    private Habilidad habilidad = Habilidad.NINGUNA;
     private Image imagen;
-    private boolean readyFlag;
-
-    public Personaje() { }
-
-    public Personaje(String nombre, int atk, int def, Medio med) {
-        this.nombre = nombre;
-        this.atk = atk;
-        this.def = def;
-    }
-    
-    public Personaje(String nombre, int atk, int def, Habilidad hab) {
-        this.nombre = nombre;
-        this.habilidad = hab;
-        this.atk = atk;
-        this.def = def;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public int getAtk() {
-        return atk;
-    }
-
-    public int getDef() {
-        return def;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setAtk(int atk) {
-        this.atk = atk;
-    }
-
-    public void setDef(int def) {
-        this.def = def;
-    }
 
     public Long getId() {
         return id;
@@ -89,10 +43,10 @@ public class Personaje implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Personaje)) {
+        if (!(object instanceof Arma)) {
             return false;
         }
-        Personaje other = (Personaje) object;
+        Arma other = (Arma) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -101,7 +55,7 @@ public class Personaje implements Serializable {
 
     @Override
     public String toString() {
-        return "beans.Personaje[ id=" + id + " ]";
+        return "props.Arma[ id=" + id + " ]";
     }
     
 }

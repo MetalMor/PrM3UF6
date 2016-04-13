@@ -1,11 +1,25 @@
 package beans;
 
+import props.Arma;
+
 /**
  *
  * @author mor
  * @version 130416
  */
 public class UsuarioAdministrador extends Usuario {
+    
+    public void crearArma() {
+        // TODO
+    }
+    
+    public void editarArma() {
+        // TODO
+    }
+    
+    public void eliminarArma(Arma a) {
+        // TODO
+    }
     
     public void crearUsuario() {
         // TODO
@@ -15,7 +29,7 @@ public class UsuarioAdministrador extends Usuario {
         // TODO
     }
     
-    public void eliminarUsuario() {
+    public void eliminarUsuario(Usuario u) {
         // TODO
     }
     

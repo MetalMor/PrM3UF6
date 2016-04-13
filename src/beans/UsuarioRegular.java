@@ -19,7 +19,7 @@ public class UsuarioRegular extends Usuario {
         // TODO
     }
     
-    public void eliminarPersonaje() {
+    public void eliminarPersonaje(Personaje p) {
         // TODO
     }
     

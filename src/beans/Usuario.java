@@ -30,6 +30,10 @@ public abstract class Usuario implements Serializable {
         this.clave = clave;
     }
 
+    public void login() {
+        // TODO
+    }
+    
     public String getNombre() {
         return nombre;
     }

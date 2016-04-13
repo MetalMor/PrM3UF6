@@ -6,6 +6,7 @@
     <class>beans.Personaje</class>
     <class>beans.Ranking</class>
     <class>beans.Equipo</class>
+    <class>props.Arma</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/fightclub?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="fc_admin"/>
