@@ -46,8 +46,8 @@ public class UsuarioAdministrador extends Usuario {
         return su.crear(n, c);
     }
     
-    public void editarUsuario() {
-        // TODO
+    public Usuario editarUsuario(long id, String n, String c) {
+        return su.editar(id, n, c);
     }
     
     public void eliminarUsuario(Usuario u) {

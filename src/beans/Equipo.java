@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import util.Utils;
 
@@ -38,14 +39,16 @@ public class Equipo implements Serializable {
     
     public int calculaPotencial() {
         int sum = 0;
-        for (Personaje miembro : miembros) {
+        for (Personaje miembro : getMiembros()) {
             sum += (miembro.getAtk()+miembro.getDef())/2;
         }
-        return sum/miembros.size();
+        return sum/getMiembros().size();
     }
 
     public boolean addMiembro(Personaje p) {
-        return miembros.add(p);
+        return getMiembros().size() < 6 ? 
+                getMiembros().add(p) :
+                false;
     }
     
     public boolean checkNull() {
@@ -57,6 +60,7 @@ public class Equipo implements Serializable {
         return nombre;
     }
     
+    @OneToMany
     @Column(name="EQUIPO_MIEMBROS")
     public List<Personaje> getMiembros() {
         return miembros;

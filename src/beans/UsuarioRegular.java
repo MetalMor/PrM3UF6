@@ -8,6 +8,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import jpa.ServicioEquipo;
 import jpa.ServicioPersonaje;
+import props.Arma;
 import props.Medio;
 
 /**
@@ -36,13 +37,16 @@ public class UsuarioRegular extends Usuario {
         return sp.crear(n, atk, def, medio, img);
     }
     
+    public Personaje cambiarArmaPersonaje(long id, Arma a) {
+        return sp.cambiarArma(id, a);
+    }
+    
     public void eliminarPersonaje(Personaje p) {
         sp.eliminar(p.getId());
     }
     
-    private void actualizarPersonajes() {
-        // TODO a esto se le llamará cuando haya un cambio en la BD para que
-        // actualice la lista de personajes del usuario
+    private List<Personaje> listaPersonajes() {
+        return sp.listaPersonajes(this.getId());
     }
     
 }

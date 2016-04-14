@@ -34,7 +34,7 @@ public abstract class Usuario implements Serializable {
     }
 
     public void login() {
-        // TODO
+        // TODO (o igual no)
     }
     
     @Column(name="USUARIO_NOMBRE")

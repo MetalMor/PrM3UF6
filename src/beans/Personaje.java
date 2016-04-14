@@ -38,11 +38,11 @@ public class Personaje implements Serializable {
     private Medio medio;
     private Habilidad habilidad;
     private Image imagen;
-    private boolean readyFlag;
+    private boolean ready;
     private Ranking ranking;
 
     public Personaje() { 
-        readyFlag = false;
+        ready = false;
     }
     
     public boolean checkNull() {
@@ -92,10 +92,10 @@ public class Personaje implements Serializable {
     }
 
     @Column(name="PERSONAJE_READY")
-    public boolean isReadyFlag() {
-        return readyFlag;
+    public boolean isReady() {
+        return ready;
     }
-
+    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -124,8 +124,8 @@ public class Personaje implements Serializable {
         this.imagen = imagen;
     }
 
-    public void setReadyFlag(boolean readyFlag) {
-        this.readyFlag = readyFlag;
+    public void setReadyFlag(boolean ready) {
+        this.ready = ready;
     }
     
     public void setRanking(Ranking r) {
