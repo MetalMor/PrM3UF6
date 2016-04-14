@@ -7,8 +7,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 /**
+ * Servicio de la unidad de persistencia que organiza los usuarios regulares que
+ * pueden participar en el juego. Creado para el usuario administrador.
  *
- * @author sergi
+ * @author mor
+ * @version 130416
  */
 public class ServicioUsuario {
 

@@ -1,6 +1,7 @@
 package util;
 
 /**
+ * Clase de utilidad con diferentes métodos estáticos a usar en toda la aplicación.
  *
  * @author mor
  * @version 130416

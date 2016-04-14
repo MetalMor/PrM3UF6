@@ -12,6 +12,7 @@ import javax.persistence.Table;
 import util.Utils;
 
 /**
+ * Entidad de persistencia del ránking de combates de cada personaje.
  *
  * @author mor
  * @version 130416

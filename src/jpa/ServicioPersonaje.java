@@ -10,6 +10,8 @@ import props.Arma;
 import props.Medio;
 
 /**
+ * Servicio de la unidad de persistencia que permite a un usuario regular organizar
+ * sus personajes.
  *
  * @author mor
  * @version 110416

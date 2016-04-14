@@ -9,7 +9,9 @@ import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
 /**
- *
+ * Servicio de la unidad de persistencia para crear al usuario administrador en
+ * la base de datos.
+ * 
  * @author mor
  * @version 130416
  */

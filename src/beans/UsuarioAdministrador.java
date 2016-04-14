@@ -9,6 +9,8 @@ import jpa.ServicioUsuario;
 import props.Arma;
 
 /**
+ * Clase que representa al usuario administrador del sistema, el cual puede crear
+ * otros usuarios y armas para los personajes.
  *
  * @author mor
  * @version 130416

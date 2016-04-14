@@ -4,6 +4,8 @@ import beans.Ranking;
 import javax.persistence.EntityManager;
 
 /**
+ * Servicio de la unidad de persistencia para controlar el guardado y consulta
+ * de datos del ránking de cada personaje.
  *
  * @author mor
  * @version 130416

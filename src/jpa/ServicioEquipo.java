@@ -7,6 +7,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 /**
+ * Servicio de la unidad de persistencia que permite a un usuario regular organizar
+ * sus equipos de combate.
  *
  * @author mor
  * @version 130416

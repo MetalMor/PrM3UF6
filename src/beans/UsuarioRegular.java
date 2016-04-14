@@ -11,6 +11,8 @@ import jpa.ServicioPersonaje;
 import props.Medio;
 
 /**
+ * Clase que representa un usuario regular del sistema, el cual puede organizar
+ * sus personajes y equipos con funciones de persistencia.
  *
  * @author mor
  * @version 130416

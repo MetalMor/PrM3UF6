@@ -15,6 +15,7 @@ import javax.persistence.Table;
 import util.Utils;
 
 /**
+ * Entidad de persistencia de equipos de personajes.
  *
  * @author mor
  * @version 130416

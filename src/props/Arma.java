@@ -13,6 +13,8 @@ import javax.persistence.Table;
 import util.Utils;
 
 /**
+ * Entidad de persistencia que define las propiedades de un arma que pueden 
+ * usar los personajes.
  *
  * @author mor
  * @version 130416
@@ -23,8 +25,6 @@ import util.Utils;
 public class Arma implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
     private String nombre;
@@ -82,6 +82,8 @@ public class Arma implements Serializable {
         this.imagen = imagen;
     }
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }

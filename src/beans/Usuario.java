@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import util.Utils;
 
 /**
+ * Clase abstracta para definir cualquier usuario con persistencia.
  *
  * @author mor
  * @version 130416

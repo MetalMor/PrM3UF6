@@ -1,6 +1,7 @@
 package props;
 
 /**
+ * Enumeración que define la raza que puede tener cada personaje.
  *
  * @author mor
  * @version 130416

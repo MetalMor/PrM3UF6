@@ -7,6 +7,8 @@ import javax.persistence.TypedQuery;
 import props.Arma;
 
 /**
+ * Servicio de la unidad de persistencia para crear/modificar/eliminar armas,
+ * creado para el usuario administrador.
  *
  * @author mor
  * @version 130416

@@ -18,6 +18,7 @@ import props.Medio;
 import util.Utils;
 
 /**
+ * Entidad de persistencia de los personajes de cada usuario.
  *
  * @author mor
  * @version 130416
