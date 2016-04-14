@@ -30,6 +30,7 @@ public class Equipo implements Serializable {
     private Long id;
     
     private String nombre;
+    private String lema;
     private Usuario propietario;
     private List<Personaje> miembros;
     
@@ -72,6 +73,11 @@ public class Equipo implements Serializable {
         return propietario;
     }
 
+    @Column(name="EQUIPO_LEMA")
+    public String getLema() {
+        return lema;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -82,6 +88,10 @@ public class Equipo implements Serializable {
 
     public void setPropietario(Usuario propietario) {
         this.propietario = propietario;
+    }
+
+    public void setLema(String lema) {
+        this.lema = lema;
     }
     
     @Id

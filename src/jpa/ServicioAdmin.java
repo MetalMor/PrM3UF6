@@ -1,9 +1,7 @@
 package jpa;
 
-import beans.Personaje;
 import beans.Usuario;
 import beans.UsuarioAdministrador;
-import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
