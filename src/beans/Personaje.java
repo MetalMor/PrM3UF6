@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -65,7 +66,7 @@ public class Personaje implements Serializable {
     }
 
     @ManyToOne(optional=true)
-    @Column(name="PERSONAJE_ARMA")
+    @JoinColumn(name="PERSONAJE_ARMA")
     public Arma getArma() {
         return arma;
     }
@@ -80,13 +81,13 @@ public class Personaje implements Serializable {
         return habilidad;
     }
 
-    @Column(name="PERSONAJE_IMAGEN")
+    /*@Column(name="PERSONAJE_IMAGEN")
     public Image getImagen() {
         return imagen;
-    }
+    }*/
 
     @OneToOne
-    @Column(name="PERSONAJE_RANKING")
+    @JoinColumn(name="PERSONAJE_RANKING")
     public Ranking getRanking() {
         return ranking;
     }
@@ -124,7 +125,7 @@ public class Personaje implements Serializable {
         this.imagen = imagen;
     }
 
-    public void setReadyFlag(boolean ready) {
+    public void setReady(boolean ready) {
         this.ready = ready;
     }
     

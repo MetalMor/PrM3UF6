@@ -19,6 +19,8 @@ import util.Utils;
  */
 public class Main extends Application {
     
+    public Main() { }
+    
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));

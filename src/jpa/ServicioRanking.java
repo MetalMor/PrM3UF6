@@ -14,6 +14,8 @@ public class ServicioRanking {
     
     private EntityManager em;
     
+    public ServicioRanking() { }
+    
     public ServicioRanking(EntityManager em) {
         this.em = em;
     }

@@ -17,6 +17,8 @@ public class ServicioUsuario {
 
     protected EntityManager em;
 
+    public ServicioUsuario() { }
+    
     public ServicioUsuario(EntityManager em) {
         this.em = em;
     }

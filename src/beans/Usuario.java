@@ -1,8 +1,6 @@
 package beans;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
@@ -22,7 +20,7 @@ import util.Utils;
 @Entity
 @Access(AccessType.PROPERTY)
 @Table(name = "USUARIO", schema = "FIGHTCLUB")
-public abstract class Usuario implements Serializable {
+public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private Long id;

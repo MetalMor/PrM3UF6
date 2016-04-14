@@ -17,21 +17,23 @@ public class ServicioAdmin {
     
     private EntityManager em;
     
+    public ServicioAdmin() { }
+    
     public ServicioAdmin(EntityManager em) {
         this.em = em;
     }
     
     public Usuario crear() {
-        if (!existeAdmin()) {
+        //if (!existeAdmin()) {
             Usuario u = new UsuarioAdministrador();
             u.setNombre("root");
             u.setClave("roflmao1");
             em.persist(u);
             return u;
-        }
-        return null;
+        //}
+        //return null;
     }
-    
+    /*
     public boolean existeAdmin() {
         TypedQuery<Usuario> query = em.createQuery(
                 "SELECT u FROM USUARIO u WHERE u.USUARIO_NOMBRE=:nombre", Usuario.class);
@@ -44,5 +46,5 @@ public class ServicioAdmin {
             return true;
         }
     }
-    
+    */
 }

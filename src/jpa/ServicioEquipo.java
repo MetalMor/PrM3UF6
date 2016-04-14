@@ -17,6 +17,8 @@ public class ServicioEquipo {
     
     private EntityManager em;
     
+    public ServicioEquipo() { }
+    
     public ServicioEquipo(EntityManager em) {
         this.em = em;
     }

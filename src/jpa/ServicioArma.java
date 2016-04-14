@@ -17,6 +17,8 @@ public class ServicioArma {
     
     private EntityManager em;
     
+    public ServicioArma() { }
+    
     public ServicioArma(EntityManager em) {
         this.em = em;
     }
@@ -33,7 +35,7 @@ public class ServicioArma {
     
     public void eliminar(long id) {
         Arma a = buscar(id);
-        if (!a.isNull()) {
+        if (!a.checkNull()) {
             em.remove(a);
         }
     }
@@ -44,7 +46,7 @@ public class ServicioArma {
     
     public Arma cambiarStats(long id, int atk, int def, Image img) {
         Arma a = em.find(Arma.class, id);
-        if (!a.isNull()) {
+        if (!a.checkNull()) {
             a.setAtk(atk);
             a.setDef(def);
             a.setImagen(img);

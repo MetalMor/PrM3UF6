@@ -1,7 +1,9 @@
 package props;
 
+import beans.Personaje;
 import java.awt.Image;
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
@@ -9,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import util.Utils;
 
@@ -27,6 +30,7 @@ public class Arma implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
     
+    private List<Personaje> personajes;
     private String nombre;
     private int atk;
     private int def;
@@ -42,7 +46,7 @@ public class Arma implements Serializable {
     public Arma() {
     }
 
-    public boolean isNull() {
+    public boolean checkNull() {
         return Utils.isNull(this);
     }
     
@@ -61,10 +65,16 @@ public class Arma implements Serializable {
         return def;
     }
 
-    @Column(name="ARMA_IMAGEN")
+    @OneToMany(mappedBy="arma")
+    @Column(name="ARMA_PERSONAJES")
+    public List<Personaje> getPersonajes() {
+        return personajes;
+    }
+
+    /*@Column(name="ARMA_IMAGEN")
     public Image getImagen() {
         return imagen;
-    }
+    }*/
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -80,6 +90,10 @@ public class Arma implements Serializable {
 
     public void setImagen(Image imagen) {
         this.imagen = imagen;
+    }
+
+    public void setPersonajes(List<Personaje> personajes) {
+        this.personajes = personajes;
     }
     
     @Id

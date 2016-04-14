@@ -20,6 +20,8 @@ public class ServicioPersonaje {
     
     protected EntityManager em;
 
+    public ServicioPersonaje() { }
+    
     public ServicioPersonaje(EntityManager em) {
         this.em = em;
     }
