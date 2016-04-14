@@ -64,7 +64,7 @@ public abstract class Usuario implements Serializable {
         this.id = id;
     }
 
-    public boolean isNull() {
+    public boolean checkNull() {
         return Utils.isNull(this);
     }
     
@@ -77,12 +77,13 @@ public abstract class Usuario implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(o instanceof Usuario)) {
-            return false;
+        if (o instanceof Usuario) {
+            Usuario other = (Usuario) o;
+            return Utils.isNull(this.getId()) || Utils.isNull(other.getId()) ? 
+                    this.getNombre().equals(other.getNombre()) : 
+                    this.getId() == other.getId();
         }
-        Usuario other = (Usuario) o;
-        return Utils.isNull(this.id) || Utils.isNull(other.id) ? this.nombre.equals(other.nombre) : this.id == other.id;
+        return false;
     }
 
     @Override

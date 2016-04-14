@@ -32,19 +32,19 @@ public class ServicioEquipo {
     
     public Equipo cambiarMiembros(long id, List<Personaje> personajes) {
         Equipo e = buscar(id);
-        if(!e.isNull())
+        if(!e.checkNull())
             e.setMiembros(personajes);
         return e;
     }
     
     public void eliminar(long id) {
         Equipo e = em.find(Equipo.class, id);
-        if (!e.isNull()) {
+        if (!e.checkNull()) {
             em.remove(e);
         }
     }
     
-    public List<Equipo> listaEquipos() {
+    public List<Equipo> listaEquipos(long propietarioId) {
         TypedQuery<Equipo> query = em.createQuery(
                 "SELECT e FROM PERSONAJE e", Equipo.class);
         return query.getResultList();

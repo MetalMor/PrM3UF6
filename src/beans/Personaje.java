@@ -44,7 +44,7 @@ public class Personaje implements Serializable {
         readyFlag = false;
     }
     
-    public boolean isNull() {
+    public boolean checkNull() {
         return Utils.isNull(this);
     }
     
@@ -69,7 +69,6 @@ public class Personaje implements Serializable {
         return arma;
     }
 
-    @ManyToOne
     @Column(name="PERSONAJE_MEDIO")
     public Medio getMedio() {
         return medio;
@@ -151,16 +150,16 @@ public class Personaje implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        if (!(object instanceof Personaje)) {
-            return false;
+        if (object instanceof Personaje) {
+            Personaje other = (Personaje) object;
+            return this.getNombre() == other.getNombre();
         }
-        Personaje other = (Personaje) object;
-        return this.nombre == other.nombre;
+        return false;
     }
 
     @Override
     public String toString() {
-        return "beans.Personaje[ id=" + id + " ]";
+        return getNombre();
     }
     
 }

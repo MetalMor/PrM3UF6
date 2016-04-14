@@ -28,11 +28,20 @@ public class ServicioUsuario {
 
     public void eliminar(long id) {
         Usuario u = buscar(id);
-        if (!u.isNull()) {
+        if (!u.checkNull()) {
             em.remove(u);
         }
     }
 
+    public Usuario editar(long id, String n, String c) {
+        Usuario u = buscar(id);
+        if (!u.checkNull()) {
+            u.setNombre(n);
+            u.setClave(c);
+        }
+        return u;
+    }
+    
     public Usuario buscar(long id) {
         return em.find(Usuario.class, id);
     }

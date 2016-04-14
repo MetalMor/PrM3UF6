@@ -50,7 +50,7 @@ public class ServicioArma {
         return a;
     }
     
-    public List<Arma> listaPersonajes() {
+    public List<Arma> listaArmas() {
         TypedQuery<Arma> query = em.createQuery(
                 "SELECT e FROM ARMA e", Arma.class);
         return query.getResultList();

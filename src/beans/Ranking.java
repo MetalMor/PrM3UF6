@@ -42,7 +42,7 @@ public class Ranking implements Serializable {
         setEmpates(getEmpates()+1);
     }
     
-    public boolean isNull() {
+    public boolean checkNull() {
         return Utils.isNull(this);
     }
     
@@ -92,14 +92,11 @@ public class Ranking implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        if (!(object instanceof Ranking)) {
-            return false;
+        if (object instanceof Ranking) {
+            Ranking other = (Ranking) object;
+            return !((Utils.isNull(this.getId()) && !Utils.isNull(other.getId())) || (!Utils.isNull(this.getId()) && !this.getId().equals(other.getId())));
         }
-        Ranking other = (Ranking) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+        return false;
     }
 
     @Override

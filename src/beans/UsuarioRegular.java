@@ -19,13 +19,9 @@ public class UsuarioRegular extends Usuario {
     
     private ServicioPersonaje sp;
     private ServicioEquipo se;
-    private List<Personaje> personajes;
-    private List<Equipo> equipos;
     
     public UsuarioRegular() {
         super();
-        personajes = new ArrayList<>();
-        equipos = new ArrayList<>();
         EntityManagerFactory emfp = Persistence.createEntityManagerFactory("ServicioPersonaje");
         EntityManager emp = emfp.createEntityManager();
         EntityManagerFactory emfe = Persistence.createEntityManagerFactory("ServicioEquipo");

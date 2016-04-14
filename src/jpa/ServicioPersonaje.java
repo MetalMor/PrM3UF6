@@ -35,14 +35,14 @@ public class ServicioPersonaje {
 
     public void eliminar(long id) {
         Personaje p = buscar(id);
-        if (!p.isNull()) {
+        if (!p.checkNull()) {
             em.remove(p);
         }
     }
 
     public Personaje cambiarArma(long id, Arma a) {
         Personaje p = em.find(Personaje.class, id);
-        if (!p.isNull()) {
+        if (!p.checkNull()) {
             p.setArma(a);
         }
         return p;
@@ -52,9 +52,10 @@ public class ServicioPersonaje {
         return em.find(Personaje.class, id);
     }
     
-    public List<Personaje> listaPersonajes() {
+    public List<Personaje> listaPersonajes(long propietarioId) {
         TypedQuery<Personaje> query = em.createQuery(
-                "SELECT e FROM PERSONAJE e", Personaje.class);
+                "SELECT p FROM PERSONAJE p WHERE p.PERSONAJE_PROPIETARIO=:propietarioId", Personaje.class);
+        query.setParameter("propietarioId", propietarioId);
         return query.getResultList();
     }
     

@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import util.Utils;
 
@@ -25,7 +26,9 @@ public class Equipo implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private Long id;
-
+    
+    private String nombre;
+    private Usuario propietario;
     private List<Personaje> miembros;
     
     public Equipo() {
@@ -44,17 +47,36 @@ public class Equipo implements Serializable {
         return miembros.add(p);
     }
     
-    public boolean isNull() {
+    public boolean checkNull() {
         return Utils.isNull(this);
     }
+
+    @Column(name="EQUIPO_NOMBRE")
+    public String getNombre() {
+        return nombre;
+    }
     
-    @Column(name="RANKING_MIEMBROS")
+    @Column(name="EQUIPO_MIEMBROS")
     public List<Personaje> getMiembros() {
         return miembros;
+    }
+    
+    @ManyToOne
+    @Column(name="EQUIPO_PROPIETARIO")
+    public Usuario getPropietario() {
+        return propietario;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public void setMiembros(List<Personaje> miembros) {
         this.miembros = miembros;
+    }
+
+    public void setPropietario(Usuario propietario) {
+        this.propietario = propietario;
     }
     
     @Id
@@ -76,20 +98,16 @@ public class Equipo implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Equipo)) {
-            return false;
+            Equipo other = (Equipo) object;
+            return !((Utils.isNull(this.getId()) && !Utils.isNull(other.getId())) || (!Utils.isNull(this.getId()) && !this.getId().equals(other.getId())));
         }
-        Equipo other = (Equipo) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+        return false;
     }
 
     @Override
     public String toString() {
-        return "beans.Equipo[ id=" + id + " ]";
+        return getNombre();
     }
     
 }

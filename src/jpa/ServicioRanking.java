@@ -31,7 +31,7 @@ public class ServicioRanking {
     
     public Ranking victoria(long id) {
         Ranking r = buscar(id);
-        if (!r.isNull()) {
+        if (!r.checkNull()) {
             r.addVictoria();
         }
         return r;
@@ -39,7 +39,7 @@ public class ServicioRanking {
     
     public Ranking derrota(long id) {
         Ranking r = buscar(id);
-        if (!r.isNull()) {
+        if (!r.checkNull()) {
             r.addDerrota();
         }
         return r;
@@ -47,7 +47,7 @@ public class ServicioRanking {
     
     public Ranking empate(long id) {
         Ranking r = buscar(id);
-        if (!r.isNull()) {
+        if (!r.checkNull()) {
             r.addEmpate();
         }
         return r;
@@ -55,7 +55,7 @@ public class ServicioRanking {
     
     public void eliminar(long id) {
         Ranking r = buscar(id);
-        if(!r.isNull())
+        if(!r.checkNull())
             em.remove(r);
     }
     
