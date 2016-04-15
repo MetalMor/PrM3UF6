@@ -6,7 +6,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import jpa.ServicioArma;
 import jpa.ServicioUsuario;
-import props.Arma;
 
 /**
  * Clase que representa al usuario administrador del sistema, el cual puede crear

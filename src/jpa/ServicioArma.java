@@ -4,7 +4,7 @@ import java.awt.Image;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-import props.Arma;
+import beans.Arma;
 
 /**
  * Servicio de la unidad de persistencia para crear/modificar/eliminar armas,

@@ -1,4 +1,4 @@
-package props;
+package beans;
 
 import beans.Personaje;
 import java.awt.Image;
@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import util.Utils;
@@ -66,11 +67,10 @@ public class Arma implements Serializable {
     }
 
     @OneToMany(mappedBy="arma")
-    @Column(name="ARMA_PERSONAJES")
     public List<Personaje> getPersonajes() {
         return personajes;
     }
-
+    
     /*@Column(name="ARMA_IMAGEN")
     public Image getImagen() {
         return imagen;
@@ -98,6 +98,7 @@ public class Arma implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="ARMA_ID")
     public Long getId() {
         return id;
     }

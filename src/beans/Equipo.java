@@ -96,6 +96,7 @@ public class Equipo implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="EQUIPO_ID")
     public Long getId() {
         return id;
     }

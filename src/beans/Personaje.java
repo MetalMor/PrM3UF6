@@ -13,7 +13,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import props.Arma;
 import props.Habilidad;
 import props.Medio;
 import util.Utils;
@@ -35,11 +34,13 @@ public class Personaje implements Serializable {
     private String nombre;
     private int atk;
     private int def;
+    private long armaId;
     private Arma arma;
     private Medio medio;
     private Habilidad habilidad;
     private Image imagen;
     private boolean ready;
+    private long rankingId;
     private Ranking ranking;
 
     public Personaje() { 
@@ -48,6 +49,16 @@ public class Personaje implements Serializable {
     
     public boolean checkNull() {
         return Utils.isNull(this);
+    }
+
+    @Column(name="PERSONAJE_ARMAID")
+    public long getArmaId() {
+        return armaId;
+    }
+
+    @Column(name="PERSONAJE_RANKINGID")
+    public long getRankingId() {
+        return rankingId;
     }
     
     @Column(name="PERSONAJE_NOMBRE")
@@ -65,8 +76,8 @@ public class Personaje implements Serializable {
         return def;
     }
 
-    @ManyToOne(optional=true)
-    @JoinColumn(name="PERSONAJE_ARMA")
+    @ManyToOne(optional=true, targetEntity=Arma.class)
+    @JoinColumn(name="PERSONAJE_ARMAID", referencedColumnName="ARMA_ID")
     public Arma getArma() {
         return arma;
     }
@@ -86,8 +97,8 @@ public class Personaje implements Serializable {
         return imagen;
     }*/
 
-    @OneToOne
-    @JoinColumn(name="PERSONAJE_RANKING")
+    @OneToOne(targetEntity=Ranking.class)
+    @JoinColumn(name="PERSONAJE_RANKINGID")
     public Ranking getRanking() {
         return ranking;
     }
@@ -95,6 +106,10 @@ public class Personaje implements Serializable {
     @Column(name="PERSONAJE_READY")
     public boolean isReady() {
         return ready;
+    }
+
+    public void setArmaId(long armaId) {
+        this.armaId = armaId;
     }
     
     public void setNombre(String nombre) {
@@ -128,6 +143,10 @@ public class Personaje implements Serializable {
     public void setReady(boolean ready) {
         this.ready = ready;
     }
+
+    public void setRankingId(long rankingId) {
+        this.rankingId = rankingId;
+    }
     
     public void setRanking(Ranking r) {
         ranking = r;
@@ -135,6 +154,7 @@ public class Personaje implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="PERSONAJE_ID")
     public Long getId() {
         return id;
     }

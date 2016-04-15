@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import util.Utils;
 
@@ -28,6 +29,8 @@ public class Ranking implements Serializable {
     private int victorias;
     private int empates;
     private int derrotas;
+    private Personaje propietario;
+    private long propId;
 
     public Ranking() { }
 
@@ -46,6 +49,16 @@ public class Ranking implements Serializable {
     public boolean checkNull() {
         return Utils.isNull(this);
     }
+
+    @OneToOne(mappedBy="PERSONAJE_RANKINGID")
+    @Column(name="RANKING_PROPIETARIO")
+    public Personaje getPropietario() {
+        return propietario;
+    }
+
+    public long getPropId() {
+        return propId;
+    }
     
     @Column(name="RANKING_VICTORIAS")
     public int getVictorias() {
@@ -62,6 +75,14 @@ public class Ranking implements Serializable {
         return derrotas;
     }
 
+    public void setPropietario(Personaje propietario) {
+        this.propietario = propietario;
+    }
+
+    public void setPropId(long propId) {
+        this.propId = propId;
+    }
+
     public void setVictorias(int victorias) {
         this.victorias = victorias;
     }
@@ -76,6 +97,7 @@ public class Ranking implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="RANKING_ID")
     public Long getId() {
         return id;
     }

@@ -8,7 +8,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import jpa.ServicioEquipo;
 import jpa.ServicioPersonaje;
-import props.Arma;
 import props.Medio;
 
 /**
