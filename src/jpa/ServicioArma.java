@@ -23,12 +23,12 @@ public class ServicioArma {
         this.em = em;
     }
     
-    public Arma crear(String n, int atk, int def, Image img) {
+    public Arma crear(String n, int atk, int def) {
         Arma a = new Arma();
         a.setNombre(n);
         a.setAtk(atk);
         a.setDef(def);
-        a.setImagen(img);
+//        a.setImagen(img);
         em.persist(a);
         return a;
     }
@@ -44,12 +44,12 @@ public class ServicioArma {
         return em.find(Arma.class, id);
     }
     
-    public Arma cambiarStats(long id, int atk, int def, Image img) {
+    public Arma cambiarStats(long id, int atk, int def) {
         Arma a = em.find(Arma.class, id);
         if (!a.checkNull()) {
             a.setAtk(atk);
             a.setDef(def);
-            a.setImagen(img);
+//            a.setImagen(img);
         }
         return a;
     }

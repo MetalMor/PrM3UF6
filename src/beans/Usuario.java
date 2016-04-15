@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import util.Utils;
 
@@ -20,7 +22,8 @@ import util.Utils;
 @Entity
 @Access(AccessType.PROPERTY)
 @Table(name = "USUARIO", schema = "FIGHTCLUB")
-public class Usuario implements Serializable {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public abstract class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private Long id;
@@ -29,6 +32,7 @@ public class Usuario implements Serializable {
     private String clave;
 
     public Usuario() {
+        setId(Utils.generarId());
     }
 
     public void login() {
@@ -54,7 +58,7 @@ public class Usuario implements Serializable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="USUARIO_ID")
     public Long getId() {
         return id;

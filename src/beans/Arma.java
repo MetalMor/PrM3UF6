@@ -3,9 +3,11 @@ package beans;
 import beans.Personaje;
 import java.awt.Image;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,20 +33,21 @@ public class Arma implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
     
-    private List<Personaje> personajes;
+    private List<Personaje> personajes = new ArrayList<>();
     private String nombre;
     private int atk;
     private int def;
-    private Image imagen;
+//    private Image imagen;
 
-    public Arma(String nombre, int atk, int def, Image imagen) {
+    public Arma(String nombre, int atk, int def) {
         this.nombre = nombre;
         this.atk = atk;
         this.def = def;
-        this.imagen = imagen;
+//        this.imagen = imagen;
     }
 
     public Arma() {
+        setId(Utils.generarId());
     }
 
     public boolean checkNull() {
@@ -66,7 +69,7 @@ public class Arma implements Serializable {
         return def;
     }
 
-    @OneToMany(mappedBy="arma")
+    @OneToMany(cascade=CascadeType.PERSIST, mappedBy="arma")
     public List<Personaje> getPersonajes() {
         return personajes;
     }
@@ -88,9 +91,9 @@ public class Arma implements Serializable {
         this.def = def;
     }
 
-    public void setImagen(Image imagen) {
-        this.imagen = imagen;
-    }
+//    public void setImagen(Image imagen) {
+//        this.imagen = imagen;
+//    }
 
     public void setPersonajes(List<Personaje> personajes) {
         this.personajes = personajes;

@@ -1,9 +1,13 @@
 package beans;
 
 import java.awt.Image;
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Transient;
 import jpa.ServicioArma;
 import jpa.ServicioUsuario;
 
@@ -14,6 +18,8 @@ import jpa.ServicioUsuario;
  * @author mor
  * @version 130416
  */
+@Entity
+@Access(AccessType.PROPERTY)
 public class UsuarioAdministrador extends Usuario {
     
     private ServicioUsuario su;
@@ -23,18 +29,18 @@ public class UsuarioAdministrador extends Usuario {
         super();
         EntityManagerFactory emfu = Persistence.createEntityManagerFactory("ServicioUsuario");
         EntityManager emu = emfu.createEntityManager();
-        EntityManagerFactory emfa = Persistence.createEntityManagerFactory("ServicioPersonaje");
+        EntityManagerFactory emfa = Persistence.createEntityManagerFactory("ServicioArma");
         EntityManager ema = emfa.createEntityManager();
-        su = new ServicioUsuario(emu);
-        sa = new ServicioArma(ema);
+        setSu(new ServicioUsuario(emu));
+        setSa(new ServicioArma(ema));
     }
     
     public Arma crearArma(String n, int atk, int def, Image img) {
-        return sa.crear(n, atk, def, img);
+        return sa.crear(n, atk, def);
     }
     
     public Arma editarArma(int id, String n, int atk, int def, Image img) {
-        return sa.cambiarStats(id, atk, def, img);
+        return sa.cambiarStats(id, atk, def);
     }
     
     public void eliminarArma(Arma a) {
@@ -51,6 +57,24 @@ public class UsuarioAdministrador extends Usuario {
     
     public void eliminarUsuario(Usuario u) {
         su.eliminar(u.getId());
+    }
+
+    @Transient
+    public ServicioUsuario getSu() {
+        return su;
+    }
+
+    @Transient
+    public ServicioArma getSa() {
+        return sa;
+    }
+    
+    public final void setSu(ServicioUsuario su) {
+        this.su = su;
+    }
+
+    public final void setSa(ServicioArma sa) {
+        this.sa = sa;
     }
     
 }

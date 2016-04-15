@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -32,10 +33,10 @@ public class Equipo implements Serializable {
     private String nombre;
     private String lema;
     private Usuario propietario;
-    private List<Personaje> miembros;
+    private List<Personaje> miembros = new ArrayList<>();
     
     public Equipo() {
-        miembros = new ArrayList<>();
+        setId(Utils.generarId());
     }
     
     public int calculaPotencial() {
@@ -62,13 +63,13 @@ public class Equipo implements Serializable {
     }
     
     @OneToMany
-    @Column(name="EQUIPO_MIEMBROS")
+    @JoinColumn(name="EQUIPO_MIEMBROS")
     public List<Personaje> getMiembros() {
         return miembros;
     }
     
     @ManyToOne
-    @Column(name="EQUIPO_PROPIETARIO")
+    @JoinColumn(name="EQUIPO_PROPIETARIO")
     public Usuario getPropietario() {
         return propietario;
     }

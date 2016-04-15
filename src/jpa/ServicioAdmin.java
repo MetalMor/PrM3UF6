@@ -28,7 +28,7 @@ public class ServicioAdmin {
             Usuario u = new UsuarioAdministrador();
             u.setNombre("root");
             u.setClave("roflmao1");
-            em.persist(u);
+            em.persist((Usuario)u);
             return u;
         //}
         //return null;

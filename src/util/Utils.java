@@ -11,5 +11,9 @@ public class Utils {
     public static boolean isNull(Object o) {
         return o == null;
     }
+
+    public static Long generarId() {
+        return System.currentTimeMillis();
+    }
     
 }

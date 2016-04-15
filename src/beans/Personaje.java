@@ -31,35 +31,38 @@ public class Personaje implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
     
+    private UsuarioRegular propietario;
+    
     private String nombre;
     private int atk;
     private int def;
-    private long armaId;
+//    private long armaId;
     private Arma arma;
     private Medio medio;
     private Habilidad habilidad;
-    private Image imagen;
+//    private Image imagen;
     private boolean ready;
-    private long rankingId;
+//    private long rankingId;
     private Ranking ranking;
 
     public Personaje() { 
         ready = false;
+        setId(Utils.generarId());
     }
     
     public boolean checkNull() {
         return Utils.isNull(this);
     }
 
-    @Column(name="PERSONAJE_ARMAID")
-    public long getArmaId() {
-        return armaId;
-    }
-
-    @Column(name="PERSONAJE_RANKINGID")
-    public long getRankingId() {
-        return rankingId;
-    }
+//    @Column(name="PERSONAJE_ARMAID")
+//    public long getArmaId() {
+//        return armaId;
+//    }
+//
+//    @Column(name="PERSONAJE_RANKINGID")
+//    public long getRankingId() {
+//        return rankingId;
+//    }
     
     @Column(name="PERSONAJE_NOMBRE")
     public String getNombre() {
@@ -76,8 +79,8 @@ public class Personaje implements Serializable {
         return def;
     }
 
-    @ManyToOne(optional=true, targetEntity=Arma.class)
-    @JoinColumn(name="PERSONAJE_ARMAID", referencedColumnName="ARMA_ID")
+    @ManyToOne
+    @JoinColumn(name="PERSONAJE_ARMAID")
     public Arma getArma() {
         return arma;
     }
@@ -96,8 +99,14 @@ public class Personaje implements Serializable {
     public Image getImagen() {
         return imagen;
     }*/
+    
+    @ManyToOne
+    @JoinColumn(name="PERSONAJE_PROPIETRIOID")
+    public UsuarioRegular getPropietario() {
+        return propietario;
+    }
 
-    @OneToOne(targetEntity=Ranking.class)
+    @OneToOne
     @JoinColumn(name="PERSONAJE_RANKINGID")
     public Ranking getRanking() {
         return ranking;
@@ -108,9 +117,9 @@ public class Personaje implements Serializable {
         return ready;
     }
 
-    public void setArmaId(long armaId) {
-        this.armaId = armaId;
-    }
+//    public void setArmaId(long armaId) {
+//        this.armaId = armaId;
+//    }
     
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -136,16 +145,20 @@ public class Personaje implements Serializable {
         this.habilidad = habilidad;
     }
 
-    public void setImagen(Image imagen) {
-        this.imagen = imagen;
-    }
+//    public void setImagen(Image imagen) {
+//        this.imagen = imagen;
+//    }
 
     public void setReady(boolean ready) {
         this.ready = ready;
     }
 
-    public void setRankingId(long rankingId) {
-        this.rankingId = rankingId;
+//    public void setRankingId(long rankingId) {
+//        this.rankingId = rankingId;
+//    }
+    
+    public void setPropietario(UsuarioRegular ur) {
+        propietario = ur;
     }
     
     public void setRanking(Ranking r) {
@@ -174,7 +187,7 @@ public class Personaje implements Serializable {
     public boolean equals(Object object) {
         if (object instanceof Personaje) {
             Personaje other = (Personaje) object;
-            return this.getNombre() == other.getNombre();
+            return this.getNombre().equals(other.getNombre());
         }
         return false;
     }

@@ -32,7 +32,7 @@ public class ServicioPersonaje {
         p.setAtk(atk);
         p.setDef(def);
         p.setMedio(medio);
-        p.setImagen(img);
+//        p.setImagen(img);
         em.persist(p);
         return p;
     }
@@ -45,7 +45,7 @@ public class ServicioPersonaje {
     }
 
     public Personaje cambiarArma(long id, Arma a) {
-        Personaje p = em.find(Personaje.class, id);
+        Personaje p = buscar(id);
         if (!p.checkNull()) {
             p.setArma(a);
         }
