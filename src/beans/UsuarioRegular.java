@@ -15,6 +15,7 @@ import javax.persistence.Transient;
 import jpa.ServicioEquipo;
 import jpa.ServicioPersonaje;
 import props.Medio;
+import util.Utils;
 
 /**
  * Clase que representa un usuario regular del sistema, el cual puede organizar
@@ -35,12 +36,8 @@ public class UsuarioRegular extends Usuario {
     
     public UsuarioRegular() {
         super();
-        EntityManagerFactory emfp = Persistence.createEntityManagerFactory("ServicioPersonaje");
-        EntityManager emp = emfp.createEntityManager();
-        EntityManagerFactory emfe = Persistence.createEntityManagerFactory("ServicioEquipo");
-        EntityManager eme = emfe.createEntityManager();
-        setSp(new ServicioPersonaje(emp));
-        setSe(new ServicioEquipo(eme));
+        setSp((ServicioPersonaje) Utils.crearServicio("ServicioPersonaje"));
+        setSe((ServicioEquipo) Utils.crearServicio("ServicioEquipo"));
     }
     
     public Equipo crearEquipo(List<Personaje> personajes) {
