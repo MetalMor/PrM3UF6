@@ -99,7 +99,7 @@ public class Ranking implements Serializable {
     }
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="RANKING_ID")
     public Long getId() {
         return id;

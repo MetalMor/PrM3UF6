@@ -32,7 +32,7 @@ public class Equipo implements Serializable {
     
     private String nombre;
     private String lema;
-    private Usuario propietario;
+    private UsuarioRegular propietario;
     private List<Personaje> miembros = new ArrayList<>();
     
     public Equipo() {
@@ -70,7 +70,7 @@ public class Equipo implements Serializable {
     
     @ManyToOne
     @JoinColumn(name="EQUIPO_PROPIETARIO")
-    public Usuario getPropietario() {
+    public UsuarioRegular getPropietario() {
         return propietario;
     }
 
@@ -87,7 +87,7 @@ public class Equipo implements Serializable {
         this.miembros = miembros;
     }
 
-    public void setPropietario(Usuario propietario) {
+    public void setPropietario(UsuarioRegular propietario) {
         this.propietario = propietario;
     }
 
@@ -96,7 +96,7 @@ public class Equipo implements Serializable {
     }
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="EQUIPO_ID")
     public Long getId() {
         return id;

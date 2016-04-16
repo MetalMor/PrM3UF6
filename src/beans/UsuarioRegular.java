@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -72,13 +73,13 @@ public class UsuarioRegular extends Usuario {
         return sp.listaPersonajes(this.getId());
     }
     
-    @OneToMany
+    @OneToMany(cascade=CascadeType.PERSIST, mappedBy="propietario")
     @JoinColumn(name="USUARIO_PERSONAJES")
     public List<Personaje> getPersonajes() {
         return personajes;
     }
     
-    @OneToMany
+    @OneToMany(cascade=CascadeType.PERSIST, mappedBy="propietario")
     @JoinColumn(name="USUARIO_EQUIPOS")
     public List<Equipo> getEquipos() {
         return equipos;
