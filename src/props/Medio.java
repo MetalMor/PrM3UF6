@@ -8,5 +8,32 @@ package props;
  * @version 130416
  */
 public enum Medio {
-    BOSQUE, CUEVA, MAR, HIELO, FUEGO
+    
+    BOSQUE("bosque"), 
+    CUEVA("cueva"), 
+    MAR("mar"), 
+    HIELO("hielo"), 
+    FUEGO("fuego");
+    
+    private String nombre;
+    
+    private Medio() { }
+    
+    private Medio(String n) {
+        setNombre(n);
+    }
+    
+    public String getNombre() {
+        return nombre;
+    }
+    
+    private void setNombre(String n) {
+        nombre = n;
+    }
+    
+    @Override
+    public String toString() {
+        return getNombre();
+    }
+    
 }

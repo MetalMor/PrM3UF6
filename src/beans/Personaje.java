@@ -15,6 +15,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import props.Habilidad;
 import props.Medio;
+import props.Raza;
 import util.Utils;
 
 /**
@@ -36,13 +37,11 @@ public class Personaje implements Serializable {
     private String nombre;
     private int atk;
     private int def;
-//    private long armaId;
     private Arma arma;
+    private Raza raza;
     private Medio medio;
     private Habilidad habilidad;
-//    private Image imagen;
     private boolean ready;
-//    private long rankingId;
     private Ranking ranking;
 
     public Personaje() { 
@@ -53,16 +52,6 @@ public class Personaje implements Serializable {
     public boolean checkNull() {
         return Utils.isNull(this);
     }
-
-//    @Column(name="PERSONAJE_ARMAID")
-//    public long getArmaId() {
-//        return armaId;
-//    }
-//
-//    @Column(name="PERSONAJE_RANKINGID")
-//    public long getRankingId() {
-//        return rankingId;
-//    }
     
     @Column(name="PERSONAJE_NOMBRE")
     public String getNombre() {
@@ -86,19 +75,19 @@ public class Personaje implements Serializable {
     }
 
     @Column(name="PERSONAJE_MEDIO")
-    public Medio getMedio() {
-        return medio;
+    public String getMedio() {
+        return medio.toString();
     }
 
+    @Column(name="PERSONAJE_RAZA")
+    public String getRaza() {
+        return raza.toString();
+    }
+    
     @Column(name="PERSONAJE_HABILIDAD")
-    public Habilidad getHabilidad() {
-        return habilidad;
+    public String getHabilidad() {
+        return habilidad.toString();
     }
-
-    /*@Column(name="PERSONAJE_IMAGEN")
-    public Image getImagen() {
-        return imagen;
-    }*/
     
     @ManyToOne
     @JoinColumn(name="PERSONAJE_PROPIETRIOID")
@@ -140,22 +129,18 @@ public class Personaje implements Serializable {
     public void setMedio(Medio medio) {
         this.medio = medio;
     }
+    
+    public void setRaza(Raza raza) {
+        this.raza = raza;
+    }
 
     public void setHabilidad(Habilidad habilidad) {
         this.habilidad = habilidad;
     }
 
-//    public void setImagen(Image imagen) {
-//        this.imagen = imagen;
-//    }
-
     public void setReady(boolean ready) {
         this.ready = ready;
     }
-
-//    public void setRankingId(long rankingId) {
-//        this.rankingId = rankingId;
-//    }
     
     public void setPropietario(UsuarioRegular ur) {
         propietario = ur;

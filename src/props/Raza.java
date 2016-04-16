@@ -7,5 +7,32 @@ package props;
  * @version 130416
  */
 public enum Raza {
-    ELFO, TROLL, ORCO, HUMANO, DEMONIO, TEMMIE
+    
+    ELFO("elfo"),
+    TROLL("orco"),
+    ORCO("trol"), 
+    HUMANO("humano"), 
+    DEMONIO("demonio"), 
+    TEMMIE("tEMMIE!");
+    
+    private String nombre;
+    
+    private Raza() { }
+    private Raza(String n) {
+        setNombre(n);
+    }
+    
+    public String getNombre() {
+        return nombre;
+    }
+    
+    private void setNombre(String n) {
+        nombre = n;
+    }
+    
+    @Override
+    public String toString() {
+        return getNombre();
+    }
+    
 }
