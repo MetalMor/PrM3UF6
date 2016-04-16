@@ -13,28 +13,24 @@ import javax.persistence.TypedQuery;
  * @author mor
  * @version 130416
  */
-public class ServicioUsuario {
+public class ServicioUsuario extends Servicio {
 
-    protected EntityManager em;
-
-    public ServicioUsuario() { }
-    
     public ServicioUsuario(EntityManager em) {
-        this.em = em;
+        super(em);
     }
 
     public Usuario crear(String n, String c) {
         Usuario u = new UsuarioRegular();
         u.setNombre(n);
         u.setClave(c);
-        em.persist(u);
+        getEm().persist(u);
         return u;
     }
 
     public void eliminar(long id) {
         Usuario u = buscar(id);
         if (!u.checkNull()) {
-            em.remove(u);
+            getEm().remove(u);
         }
     }
 
@@ -48,11 +44,11 @@ public class ServicioUsuario {
     }
     
     public Usuario buscar(long id) {
-        return em.find(Usuario.class, id);
+        return getEm().find(Usuario.class, id);
     }
     
     public List<Usuario> listaUsuarios() {
-        TypedQuery<Usuario> query = em.createQuery(
+        TypedQuery<Usuario> query = getEm().createQuery(
                 "SELECT e FROM USUARIO e", Usuario.class);
         return query.getResultList();
     }

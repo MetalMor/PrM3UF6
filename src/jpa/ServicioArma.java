@@ -13,14 +13,10 @@ import beans.Arma;
  * @author mor
  * @version 130416
  */
-public class ServicioArma {
-    
-    private EntityManager em;
-    
-    public ServicioArma() { }
-    
+public class ServicioArma extends Servicio {
+
     public ServicioArma(EntityManager em) {
-        this.em = em;
+        super(em);
     }
     
     public Arma crear(String n, int atk, int def) {
@@ -29,24 +25,25 @@ public class ServicioArma {
         a.setAtk(atk);
         a.setDef(def);
 //        a.setImagen(img);
-        em.persist(a);
+        getEm().persist(a);
         return a;
     }
     
     public void eliminar(long id) {
         Arma a = buscar(id);
         if (!a.checkNull()) {
-            em.remove(a);
+            getEm().remove(a);
         }
     }
     
     public Arma buscar(long id) {
-        return em.find(Arma.class, id);
+        return getEm().find(Arma.class, id);
     }
     
-    public Arma cambiarStats(long id, int atk, int def) {
-        Arma a = em.find(Arma.class, id);
+    public Arma cambiarStats(long id, String n, int atk, int def) {
+        Arma a = getEm().find(Arma.class, id);
         if (!a.checkNull()) {
+            a.setNombre(n);
             a.setAtk(atk);
             a.setDef(def);
 //            a.setImagen(img);
@@ -55,7 +52,7 @@ public class ServicioArma {
     }
     
     public List<Arma> listaArmas() {
-        TypedQuery<Arma> query = em.createQuery(
+        TypedQuery<Arma> query = getEm().createQuery(
                 "SELECT e FROM ARMA e", Arma.class);
         return query.getResultList();
     }

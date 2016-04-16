@@ -1,5 +1,16 @@
 package util;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import jpa.Servicio;
+import jpa.ServicioAdmin;
+import jpa.ServicioArma;
+import jpa.ServicioEquipo;
+import jpa.ServicioPersonaje;
+import jpa.ServicioRanking;
+import jpa.ServicioUsuario;
+
 /**
  * Clase de utilidad con diferentes métodos estáticos a usar en toda la aplicación.
  *
@@ -14,6 +25,30 @@ public class Utils {
 
     public static Long generarId() {
         return System.currentTimeMillis();
+    }
+    
+    public static EntityManager crearEntityManager(String persUd) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory(persUd);
+        return emf.createEntityManager();
+    }
+    
+    public static Servicio crearServicio(String persUd) {
+        EntityManager em = crearEntityManager(persUd);
+        switch(persUd) {
+            case "ServicioAdmin":
+                return new ServicioAdmin(em);
+            case "ServicioArma":
+                return new ServicioArma(em);
+            case "ServicioEquipo":
+                return new ServicioEquipo(em);
+            case "ServicioPersonaje":
+                return new ServicioPersonaje(em);
+            case "ServicioRanking":
+                return new ServicioRanking(em);
+            case "ServicioUsuario":
+                return new ServicioUsuario(em);
+        }
+        return null;
     }
     
 }

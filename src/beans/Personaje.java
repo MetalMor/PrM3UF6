@@ -47,7 +47,7 @@ public class Personaje implements Serializable {
 
     public Personaje() { 
         ready = false;
-        setId(Utils.generarId());
+        //setId(Utils.generarId());
     }
     
     public boolean checkNull() {
@@ -166,7 +166,7 @@ public class Personaje implements Serializable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="PERSONAJE_ID")
     public Long getId() {
         return id;

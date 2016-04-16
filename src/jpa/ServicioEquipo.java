@@ -13,25 +13,21 @@ import javax.persistence.TypedQuery;
  * @author mor
  * @version 130416
  */
-public class ServicioEquipo {
-    
-    private EntityManager em;
-    
-    public ServicioEquipo() { }
-    
+public class ServicioEquipo extends Servicio {
+
     public ServicioEquipo(EntityManager em) {
-        this.em = em;
+        super(em);
     }
     
     public Equipo crear(List<Personaje> personajes) {
         Equipo e = new Equipo();
         e.setMiembros(personajes);
-        em.persist(e);
+        getEm().persist(e);
         return e;
     }
     
     public Equipo buscar(long id) {
-        return em.find(Equipo.class, id);
+        return getEm().find(Equipo.class, id);
     }
     
     public Equipo cambiarMiembros(long id, List<Personaje> personajes) {
@@ -42,14 +38,14 @@ public class ServicioEquipo {
     }
     
     public void eliminar(long id) {
-        Equipo e = em.find(Equipo.class, id);
+        Equipo e = getEm().find(Equipo.class, id);
         if (!e.checkNull()) {
-            em.remove(e);
+            getEm().remove(e);
         }
     }
     
     public List<Equipo> listaEquipos(long propietarioId) {
-        TypedQuery<Equipo> query = em.createQuery(
+        TypedQuery<Equipo> query = getEm().createQuery(
                 "SELECT e FROM PERSONAJE e", Equipo.class);
         return query.getResultList();
     }

@@ -10,6 +10,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Transient;
 import jpa.ServicioArma;
 import jpa.ServicioUsuario;
+import util.Utils;
 
 /**
  * Clase que representa al usuario administrador del sistema, el cual puede crear
@@ -27,20 +28,16 @@ public class UsuarioAdministrador extends Usuario {
     
     public UsuarioAdministrador() {
         super();
-        EntityManagerFactory emfu = Persistence.createEntityManagerFactory("ServicioUsuario");
-        EntityManager emu = emfu.createEntityManager();
-        EntityManagerFactory emfa = Persistence.createEntityManagerFactory("ServicioArma");
-        EntityManager ema = emfa.createEntityManager();
-        setSu(new ServicioUsuario(emu));
-        setSa(new ServicioArma(ema));
+        setSu((ServicioUsuario) Utils.crearServicio("ServicioUsuario"));
+        setSa((ServicioArma) Utils.crearServicio("ServicioArma"));
     }
     
-    public Arma crearArma(String n, int atk, int def, Image img) {
+    public Arma crearArma(String n, int atk, int def) {
         return sa.crear(n, atk, def);
     }
     
-    public Arma editarArma(int id, String n, int atk, int def, Image img) {
-        return sa.cambiarStats(id, atk, def);
+    public Arma editarArma(int id, String n, int atk, int def) {
+        return sa.cambiarStats(id, n, atk, def);
     }
     
     public void eliminarArma(Arma a) {

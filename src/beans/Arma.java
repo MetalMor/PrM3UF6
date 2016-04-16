@@ -47,7 +47,7 @@ public class Arma implements Serializable {
     }
 
     public Arma() {
-        setId(Utils.generarId());
+        //setId(Utils.generarId());
     }
 
     public boolean checkNull() {
@@ -100,7 +100,7 @@ public class Arma implements Serializable {
     }
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ARMA_ID")
     public Long getId() {
         return id;
@@ -120,19 +120,16 @@ public class Arma implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Arma)) {
-            return false;
+        if (object instanceof Arma) {
+            Arma other = (Arma) object;
+            return !((Utils.isNull(this.id) && !Utils.isNull(other.id)) || (!Utils.isNull(this.id) && !this.id.equals(other.id)));
         }
-        Arma other = (Arma) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+        return false;
     }
 
     @Override
     public String toString() {
-        return "props.Arma[ id=" + id + " ]";
+        return "beans.Arma[ id=" + id + " ]";
     }
     
 }

@@ -32,7 +32,7 @@ public abstract class Usuario implements Serializable {
     private String clave;
 
     public Usuario() {
-        setId(Utils.generarId());
+        //setId(Utils.generarId());
     }
 
     public void login() {
@@ -58,7 +58,7 @@ public abstract class Usuario implements Serializable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="USUARIO_ID")
     public Long getId() {
         return id;

@@ -10,14 +10,10 @@ import javax.persistence.EntityManager;
  * @author mor
  * @version 130416
  */
-public class ServicioRanking {
-    
-    private EntityManager em;
-    
-    public ServicioRanking() { }
-    
+public class ServicioRanking extends Servicio {
+
     public ServicioRanking(EntityManager em) {
-        this.em = em;
+        super(em);
     }
     
     public Ranking crear(int victorias, int empates, int derrotas) {
@@ -25,12 +21,12 @@ public class ServicioRanking {
         r.setVictorias(victorias);
         r.setEmpates(empates);
         r.setDerrotas(derrotas);
-        em.persist(r);
+        getEm().persist(r);
         return r;
     }
     
     public Ranking buscar(long id) {
-        return em.find(Ranking.class, id);
+        return getEm().find(Ranking.class, id);
     }
     
     public Ranking victoria(long id) {
@@ -60,7 +56,7 @@ public class ServicioRanking {
     public void eliminar(long id) {
         Ranking r = buscar(id);
         if(!r.checkNull())
-            em.remove(r);
+            getEm().remove(r);
     }
     
 }

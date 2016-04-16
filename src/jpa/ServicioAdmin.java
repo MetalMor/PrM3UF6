@@ -13,14 +13,10 @@ import javax.persistence.TypedQuery;
  * @author mor
  * @version 130416
  */
-public class ServicioAdmin {
-    
-    private EntityManager em;
-    
-    public ServicioAdmin() { }
-    
+public class ServicioAdmin extends Servicio {
+
     public ServicioAdmin(EntityManager em) {
-        this.em = em;
+        super(em);
     }
     
     public Usuario crear() {
@@ -28,7 +24,7 @@ public class ServicioAdmin {
             Usuario u = new UsuarioAdministrador();
             u.setNombre("root");
             u.setClave("roflmao1");
-            em.persist((Usuario)u);
+            getEm().persist((Usuario)u);
             return u;
         //}
         //return null;

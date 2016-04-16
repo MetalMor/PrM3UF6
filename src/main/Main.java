@@ -1,6 +1,7 @@
 package main;
 
 import beans.Usuario;
+import beans.UsuarioAdministrador;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import jpa.ServicioAdmin;
+import jpa.ServicioArma;
 import util.Utils;
 
 /**
@@ -36,15 +38,14 @@ public class Main extends Application {
      */
     public static void main(String[] args) {
         //launch(args);
-        EntityManagerFactory emfa = Persistence.createEntityManagerFactory("ServicioAdmin");
-        EntityManager ema = emfa.createEntityManager();
-        ServicioAdmin sa = new ServicioAdmin(ema);
-        Usuario admin = sa.crear();
+        ServicioAdmin sa = (ServicioAdmin) Utils.crearServicio("ServicioAdmin");
+        UsuarioAdministrador admin = (UsuarioAdministrador) sa.crear();
         if (!Utils.isNull(admin)) {
             System.out.println(admin);
         } else {
             System.out.println("Admin = null");
         }
+        System.out.println(admin.crearArma("Palo de la verdad", 1, 1));
     }
     
 }

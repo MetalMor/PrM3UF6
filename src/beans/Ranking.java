@@ -34,7 +34,7 @@ public class Ranking implements Serializable {
     private long propId;
 
     public Ranking() { 
-        setId(Utils.generarId());
+        //setId(Utils.generarId());
     }
 
     public void addVictoria() {

@@ -16,14 +16,10 @@ import props.Medio;
  * @author mor
  * @version 110416
  */
-public class ServicioPersonaje {
-    
-    protected EntityManager em;
+public class ServicioPersonaje extends Servicio {
 
-    public ServicioPersonaje() { }
-    
     public ServicioPersonaje(EntityManager em) {
-        this.em = em;
+        super(em);
     }
     
     public Personaje crear(String n, int atk, int def, Medio medio, Image img) {
@@ -33,14 +29,14 @@ public class ServicioPersonaje {
         p.setDef(def);
         p.setMedio(medio);
 //        p.setImagen(img);
-        em.persist(p);
+        getEm().persist(p);
         return p;
     }
 
     public void eliminar(long id) {
         Personaje p = buscar(id);
         if (!p.checkNull()) {
-            em.remove(p);
+            getEm().remove(p);
         }
     }
 
@@ -53,11 +49,11 @@ public class ServicioPersonaje {
     }
     
     public Personaje buscar(long id) {
-        return em.find(Personaje.class, id);
+        return getEm().find(Personaje.class, id);
     }
     
     public List<Personaje> listaPersonajes(long propietarioId) {
-        TypedQuery<Personaje> query = em.createQuery(
+        TypedQuery<Personaje> query = getEm().createQuery(
                 "SELECT p FROM PERSONAJE p WHERE p.PERSONAJE_PROPIETARIO=:propietarioId", Personaje.class);
         query.setParameter("propietarioId", propietarioId);
         return query.getResultList();

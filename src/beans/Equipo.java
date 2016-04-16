@@ -36,7 +36,7 @@ public class Equipo implements Serializable {
     private List<Personaje> miembros = new ArrayList<>();
     
     public Equipo() {
-        setId(Utils.generarId());
+        //setId(Utils.generarId());
     }
     
     public int calculaPotencial() {
@@ -96,7 +96,7 @@ public class Equipo implements Serializable {
     }
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="EQUIPO_ID")
     public Long getId() {
         return id;
