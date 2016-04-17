@@ -22,7 +22,7 @@ import util.Utils;
 @Entity
 @Access(AccessType.PROPERTY)
 @Table(name = "RANKING", schema = "FIGHTCLUB")
-public class Ranking implements Serializable {
+public class Ranking implements Serializable, Comparable {
 
     private static final long serialVersionUID = 1L;
     private Long id;
@@ -128,6 +128,31 @@ public class Ranking implements Serializable {
     @Override
     public String toString() {
         return "Victorias: "+victorias+", derrotas: "+derrotas+".";
+    }
+    
+    @Override
+    public int compareTo(Object o) {
+
+        Ranking other = (Ranking) o;
+
+        if (this.victorias > other.victorias) {
+            return 1;
+        } else if (this.victorias < other.victorias) {
+            return -1;
+        } else {
+            if (this.empates > other.empates) {
+                return 1;
+            } else if (this.empates < other.empates) {
+                return -1;
+            } else {
+                if (this.derrotas > other.derrotas) {
+                    return 1;
+                } else if (this.derrotas < other.derrotas) {
+                    return -1;
+                }
+            }
+        }
+        return 0;
     }
     
 }
