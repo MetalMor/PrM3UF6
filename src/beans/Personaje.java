@@ -75,18 +75,18 @@ public class Personaje implements Serializable {
     }
 
     @Column(name="PERSONAJE_MEDIO")
-    public String getMedio() {
-        return medio.toString();
+    public Medio getMedio() {
+        return medio;
     }
 
     @Column(name="PERSONAJE_RAZA")
-    public String getRaza() {
-        return raza.toString();
+    public Raza getRaza() {
+        return raza;
     }
     
     @Column(name="PERSONAJE_HABILIDAD")
-    public String getHabilidad() {
-        return habilidad.toString();
+    public Habilidad getHabilidad() {
+        return habilidad;
     }
     
     @ManyToOne

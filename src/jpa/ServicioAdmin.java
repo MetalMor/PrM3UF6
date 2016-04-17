@@ -24,7 +24,7 @@ public class ServicioAdmin extends Servicio {
             Usuario u = new UsuarioAdministrador();
             u.setNombre("root");
             u.setClave("roflmao1");
-            getEm().persist((Usuario)u);
+            getEm().persist(u);
             return u;
         //}
         //return null;
