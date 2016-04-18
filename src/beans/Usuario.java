@@ -23,9 +23,9 @@ import util.Utils;
  * @author mor
  * @version 130416
  */
-@MappedSuperclass
+@Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(discriminatorType = DiscriminatorType.INTEGER)
+@DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING)
 @Access(AccessType.PROPERTY)
 @Table(name = "USUARIO", schema = "FIGHTCLUB")
 public abstract class Usuario implements Serializable {

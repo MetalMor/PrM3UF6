@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,7 +16,9 @@ import javax.persistence.Persistence;
 import javax.persistence.Transient;
 import jpa.ServicioEquipo;
 import jpa.ServicioPersonaje;
+import props.Habilidad;
 import props.Medio;
+import props.Raza;
 import util.Utils;
 
 /**
@@ -27,6 +30,7 @@ import util.Utils;
  */
 @Entity
 @Access(AccessType.PROPERTY)
+@DiscriminatorValue(value = "R")
 public class UsuarioRegular extends Usuario {
     
     private ServicioPersonaje sp;
@@ -57,8 +61,8 @@ public class UsuarioRegular extends Usuario {
         return se.listaEquipos(this.getId());
     }
     
-    public Personaje crearPersonaje(String n, int atk, int def, Medio medio, Image img) {
-        return sp.crear(n, atk, def, medio, img);
+    public Personaje crearPersonaje(String n, int atk, int def, Medio medio, Raza raza, Habilidad hab) {
+        return sp.crear(n, atk, def, medio, raza, hab);
     }
     
     public Personaje cambiarArmaPersonaje(long id, Arma a) {

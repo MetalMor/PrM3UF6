@@ -1,6 +1,8 @@
 package main;
 
+import beans.Personaje;
 import beans.UsuarioAdministrador;
+import beans.UsuarioRegular;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,6 +10,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import jpa.ServicioAdmin;
 import static org.eclipse.persistence.sessions.SessionProfiler.Transaction;
+import props.Habilidad;
+import props.Medio;
+import props.Raza;
 import util.Utils;
 
 /**
@@ -42,8 +47,11 @@ public class Main extends Application {
         } else {
             System.out.println("Admin = null");
         }
-        System.out.println(admin.crearArma("Palo de la verdad", 1, 1));
+        admin.crearArma("Palo de la verdad", 1, 1);
+        UsuarioRegular user = (UsuarioRegular)admin.crearUsuario("prueba", "prueba123");
+        System.out.println(user.crearPersonaje("pepito", 1, 1, Medio.CUEVA, Raza.TEMMIE, Habilidad.NINGUNA));
         sa.getEm().getTransaction().commit();
+        System.out.println(admin.getSa().buscar(51));
     }
     
 }

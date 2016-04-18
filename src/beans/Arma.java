@@ -38,13 +38,6 @@ public class Arma implements Serializable {
     private int def;
 //    private Image imagen;
 
-    public Arma(String nombre, int atk, int def) {
-        this.nombre = nombre;
-        this.atk = atk;
-        this.def = def;
-//        this.imagen = imagen;
-    }
-
     public Arma() {
         //setId(Utils.generarId());
     }

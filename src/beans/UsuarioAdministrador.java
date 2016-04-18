@@ -3,6 +3,7 @@ package beans;
 import java.awt.Image;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -21,6 +22,7 @@ import util.Utils;
  */
 @Entity
 @Access(AccessType.PROPERTY)
+@DiscriminatorValue(value = "A")
 public class UsuarioAdministrador extends Usuario {
     
     private ServicioUsuario su;

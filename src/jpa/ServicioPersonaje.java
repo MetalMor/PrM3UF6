@@ -7,7 +7,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import beans.Arma;
+import props.Habilidad;
 import props.Medio;
+import props.Raza;
 
 /**
  * Servicio de la unidad de persistencia que permite a un usuario regular organizar
@@ -22,13 +24,14 @@ public class ServicioPersonaje extends Servicio {
         super(em);
     }
     
-    public Personaje crear(String n, int atk, int def, Medio medio, Image img) {
+    public Personaje crear(String n, int atk, int def, Medio medio, Raza raza, Habilidad hab) {
         Personaje p = new Personaje();
         p.setNombre(n);
         p.setAtk(atk);
         p.setDef(def);
         p.setMedio(medio);
-//        p.setImagen(img);
+        p.setRaza(raza);
+        p.setHabilidad(hab);
         getEm().persist(p);
         return p;
     }
