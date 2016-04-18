@@ -62,7 +62,7 @@ public class Equipo implements Serializable {
         return nombre;
     }
     
-    @OneToMany
+    @OneToMany(mappedBy="equipo")
     @JoinColumn(name="EQUIPO_MIEMBROS")
     public List<Personaje> getMiembros() {
         return miembros;

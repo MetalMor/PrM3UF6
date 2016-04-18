@@ -2,6 +2,7 @@ package jpa;
 
 import beans.Equipo;
 import beans.Personaje;
+import beans.UsuarioRegular;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -19,9 +20,12 @@ public class ServicioEquipo extends Servicio {
         super(em);
     }
     
-    public Equipo crear(List<Personaje> personajes) {
+    public Equipo crear(List<Personaje> personajes, String n, String lema, UsuarioRegular u) {
         Equipo e = new Equipo();
+        e.setNombre(n);
+        e.setLema(lema);
         e.setMiembros(personajes);
+        e.setPropietario(u);
         getEm().persist(e);
         return e;
     }

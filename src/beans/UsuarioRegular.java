@@ -45,8 +45,8 @@ public class UsuarioRegular extends Usuario {
         setSe((ServicioEquipo) Utils.crearServicio("ServicioEquipo"));
     }
     
-    public Equipo crearEquipo(List<Personaje> personajes) {
-        return se.crear(personajes);
+    public Equipo crearEquipo(List<Personaje> personajes, String n, String lema) {
+        return se.crear(personajes, n, lema, this);
     }
     
     public Equipo cambiarEquipo(long id, List<Personaje> personajes) {
@@ -61,8 +61,8 @@ public class UsuarioRegular extends Usuario {
         return se.listaEquipos(this.getId());
     }
     
-    public Personaje crearPersonaje(String n, int atk, int def, Medio medio, Raza raza, Habilidad hab) {
-        return sp.crear(n, atk, def, medio, raza, hab);
+    public Personaje crearPersonaje(String n, int atk, int def, Medio medio, Raza raza, Habilidad hab, boolean ready) {
+        return sp.crear(n, atk, def, medio, raza, hab, this);
     }
     
     public Personaje cambiarArmaPersonaje(long id, Arma a) {

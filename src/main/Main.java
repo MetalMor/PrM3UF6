@@ -49,7 +49,7 @@ public class Main extends Application {
         }
         admin.crearArma("Palo de la verdad", 1, 1);
         UsuarioRegular user = (UsuarioRegular)admin.crearUsuario("prueba", "prueba123");
-        System.out.println(user.crearPersonaje("pepito", 1, 1, Medio.CUEVA, Raza.TEMMIE, Habilidad.NINGUNA));
+        System.out.println(user.crearPersonaje("pepito", 1, 1, Medio.CUEVA, Raza.TEMMIE, Habilidad.NINGUNA, false));
         sa.getEm().getTransaction().commit();
         System.out.println(admin.getSa().buscar(51));
     }

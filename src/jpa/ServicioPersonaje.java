@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import beans.Arma;
+import beans.UsuarioRegular;
 import props.Habilidad;
 import props.Medio;
 import props.Raza;
@@ -24,7 +25,7 @@ public class ServicioPersonaje extends Servicio {
         super(em);
     }
     
-    public Personaje crear(String n, int atk, int def, Medio medio, Raza raza, Habilidad hab) {
+    public Personaje crear(String n, int atk, int def, Medio medio, Raza raza, Habilidad hab, UsuarioRegular u) {
         Personaje p = new Personaje();
         p.setNombre(n);
         p.setAtk(atk);
@@ -32,6 +33,7 @@ public class ServicioPersonaje extends Servicio {
         p.setMedio(medio);
         p.setRaza(raza);
         p.setHabilidad(hab);
+        p.setPropietario(u);
         getEm().persist(p);
         return p;
     }

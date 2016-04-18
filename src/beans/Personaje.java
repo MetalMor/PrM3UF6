@@ -1,6 +1,5 @@
 package beans;
 
-import java.awt.Image;
 import java.io.Serializable;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
@@ -43,9 +42,9 @@ public class Personaje implements Serializable {
     private Habilidad habilidad;
     private boolean ready;
     private Ranking ranking;
+    private Equipo equipo;
 
     public Personaje() { 
-        ready = false;
         //setId(Utils.generarId());
     }
     
@@ -104,6 +103,16 @@ public class Personaje implements Serializable {
     @Column(name="PERSONAJE_READY")
     public boolean isReady() {
         return ready;
+    }
+
+    @ManyToOne(optional = true)
+    @JoinColumn(name="PERSONAJE_EQUIPO")
+    public Equipo getEquipo() {
+        return equipo;
+    }
+
+    public void setEquipo(Equipo equipo) {
+        this.equipo = equipo;
     }
 
 //    public void setArmaId(long armaId) {
