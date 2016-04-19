@@ -8,9 +8,6 @@ import java.util.Collection;
  */
 public class ListaOrdenada<T> extends ArrayList {
 
-    // MÈTODES
-    
-    //<editor-fold defaultstate="collapsed" desc="Constructors.">
     /**
      * Constructor de tamany estàtic.
      * 
@@ -32,8 +29,7 @@ public class ListaOrdenada<T> extends ArrayList {
      */
     public ListaOrdenada(Collection c) {
         super(c);
-        //this.sort(rc);
+        //this.sort(rc); // TODO Comparator
     }
-    //</editor-fold>
     
 }
