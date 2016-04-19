@@ -38,6 +38,7 @@ public class Main extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
         //launch(args);
         ServicioAdmin sa = (ServicioAdmin) Utils.crearServicio("ServicioAdmin");
         UsuarioAdministrador admin = (UsuarioAdministrador) sa.crear();
@@ -47,9 +48,12 @@ public class Main extends Application {
             System.out.println("Admin = null");
         }
         admin.crearArma("Palo de la verdad", 1, 1);
-        UsuarioRegular user = (UsuarioRegular)admin.crearUsuario("prueba", "prueba123");
-        System.out.println(user.crearPersonaje("pepito", 1, 1, Medio.CUEVA, Raza.TEMMIE, Habilidad.NINGUNA, false));
-        System.out.println(admin.getSa().buscar(51));
+        UsuarioRegular user = (UsuarioRegular) admin.crearUsuario("prueba", "prueba123");
+        System.out.println(user.crearPersonaje("pepito", 1, 1, Medio.CUEVA, Raza.TEMMIE, Habilidad.NINGUNA, null, true));
+        System.out.println(user.crearPersonaje("juanito", 1, 1, Medio.MAR, Raza.ELFO, Habilidad.VELOCIDAD, null, true));
+        System.out.println(user.crearPersonaje("jorgito", 1, 1, Medio.BOSQUE, Raza.TROLL, Habilidad.KAITO, null, true));
+        System.out.println(user.crearPersonaje("pedrito", 1, 1, Medio.FUEGO, Raza.ORCO, Habilidad.NINGUNA, null, true));
+
     }
     
 }

@@ -57,7 +57,7 @@ public class Equipo implements Serializable {
         return Utils.isNull(this);
     }
 
-    @Column(name="EQUIPO_NOMBRE")
+    @Column(nullable = false, name="EQUIPO_NOMBRE")
     public String getNombre() {
         return nombre;
     }
@@ -74,7 +74,7 @@ public class Equipo implements Serializable {
         return propietario;
     }
 
-    @Column(name="EQUIPO_LEMA")
+    @Column(nullable = false, name="EQUIPO_LEMA")
     public String getLema() {
         return lema;
     }

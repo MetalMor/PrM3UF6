@@ -54,17 +54,17 @@ public class Personaje implements Serializable {
         return Utils.isNull(this);
     }
     
-    @Column(name="PERSONAJE_NOMBRE")
+    @Column(unique = true, nullable = false, name="PERSONAJE_NOMBRE")
     public String getNombre() {
         return nombre;
     }
 
-    @Column(name="PERSONAJE_ATK")
+    @Column(nullable = false, name="PERSONAJE_ATK")
     public int getAtk() {
         return atk;
     }
 
-    @Column(name="PERSONAJE_DEF")
+    @Column(nullable = false, name="PERSONAJE_DEF")
     public int getDef() {
         return def;
     }
@@ -75,17 +75,17 @@ public class Personaje implements Serializable {
         return arma;
     }
 
-    @Column(name="PERSONAJE_MEDIO")
+    @Column(nullable = false, name="PERSONAJE_MEDIO")
     public Medio getMedio() {
         return medio;
     }
 
-    @Column(name="PERSONAJE_RAZA")
+    @Column(nullable = false, name="PERSONAJE_RAZA")
     public Raza getRaza() {
         return raza;
     }
     
-    @Column(name="PERSONAJE_HABILIDAD")
+    @Column(nullable = false, name="PERSONAJE_HABILIDAD")
     public Habilidad getHabilidad() {
         return habilidad;
     }
@@ -102,7 +102,7 @@ public class Personaje implements Serializable {
         return ranking;
     }
 
-    @Column(name="PERSONAJE_READY")
+    @Column(nullable = false, name="PERSONAJE_READY")
     public boolean isReady() {
         return ready;
     }

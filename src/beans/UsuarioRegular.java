@@ -61,8 +61,8 @@ public class UsuarioRegular extends Usuario {
         return se.listaEquipos(this.getId());
     }
     
-    public Personaje crearPersonaje(String n, int atk, int def, Medio medio, Raza raza, Habilidad hab, boolean ready) {
-        return sp.crear(n, atk, def, medio, raza, hab, this);
+    public Personaje crearPersonaje(String n, int atk, int def, Medio medio, Raza raza, Habilidad hab, Arma a, boolean ready) {
+        return sp.crear(n, atk, def, medio, raza, hab, a, this);
     }
     
     public Personaje cambiarArmaPersonaje(long id, Arma a) {

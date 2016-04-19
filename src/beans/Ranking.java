@@ -63,17 +63,17 @@ public class Ranking implements Serializable, Comparable {
         return propId;
     }
     
-    @Column(name="RANKING_VICTORIAS")
+    @Column(nullable = false, name="RANKING_VICTORIAS")
     public int getVictorias() {
         return victorias;
     }
 
-    @Column(name="RANKING_EMPATES")
+    @Column(nullable = false, name="RANKING_EMPATES")
     public int getEmpates() {
         return empates;
     }
 
-    @Column(name="RANKING_DERROTAS")
+    @Column(nullable = false, name="RANKING_DERROTAS")
     public int getDerrotas() {
         return derrotas;
     }

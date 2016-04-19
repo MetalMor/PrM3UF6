@@ -1,96 +1,195 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
 <?import java.lang.*?>
+<?import javafx.collections.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="711.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="711.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
   <tabs>
     <Tab text="Crear Usuario">
-         <content>
-            <GridPane>
-              <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="55.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="359.0" minWidth="10.0" prefWidth="135.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="190.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="241.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints fillHeight="false" maxHeight="119.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="196.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Label prefHeight="17.0" prefWidth="138.0" text="Nombre del Usuario" GridPane.columnIndex="1" />
-                  <TextField prefHeight="25.0" prefWidth="122.0" GridPane.columnIndex="2" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Crear" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-               </children>
-            </GridPane>
-         </content></Tab>
-    <Tab text="Modificar Usuario" />
-      <Tab text="Eliminar Usuario">
-         <content>
-            <GridPane>
-              <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" text="Eliminar Usuario" GridPane.columnIndex="1" />
-               </children>
-            </GridPane>
-         </content>
-      </Tab>
-      <Tab text="Crear Arma">
-         <content>
-            <GridPane>
-               <children>
-                  <Label prefHeight="17.0" prefWidth="138.0" text="Nombre del Arma" GridPane.columnIndex="1" />
-                  <TextField prefHeight="25.0" prefWidth="122.0" GridPane.columnIndex="2" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Crear" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <TextField prefHeight="25.0" prefWidth="122.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Label prefHeight="17.0" prefWidth="138.0" text="Bonus Arma" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-               </children>
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="55.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="359.0" minWidth="10.0" prefWidth="135.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="190.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="241.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints maxHeight="114.0" minHeight="0.0" prefHeight="69.0" vgrow="SOMETIMES" />
-                  <RowConstraints fillHeight="false" maxHeight="209.0" minHeight="0.0" prefHeight="70.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="196.0" minHeight="0.0" prefHeight="63.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="196.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-            </GridPane>
-         </content>
-      </Tab>
-      <Tab text="Modificar Arma" />
-      <Tab text="Eliminar Arma">
-         <content>
-            <GridPane>
-               <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" text="Eliminar Arma" GridPane.columnIndex="1" />
-               </children>
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-            </GridPane>
-         </content>
-      </Tab>
+      <content>
+        <GridPane gridLinesVisible="false" prefHeight="302.0">
+          <children>
+            <Label prefHeight="17.0" prefWidth="138.0" text="Nombre del Usuario" GridPane.columnIndex="1" />
+            <TextField prefHeight="25.0" prefWidth="122.0" GridPane.columnIndex="2" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Crear" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label text="Password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField prefHeight="25.0" prefWidth="122.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="78.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="359.0" minWidth="10.0" prefWidth="149.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="221.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="263.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints maxHeight="199.0" minHeight="10.0" prefHeight="54.0" vgrow="SOMETIMES" />
+            <RowConstraints fillHeight="false" maxHeight="159.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="277.0" minHeight="7.0" prefHeight="11.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="277.0" minHeight="10.0" prefHeight="85.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="277.0" minHeight="10.0" prefHeight="198.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </content>
+    </Tab>
+    <Tab text="Modificar Usuario">
+      <content>
+        <GridPane>
+          <children>
+            <Label prefHeight="17.0" prefWidth="138.0" text="Nombre del Usuario" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <ComboBox prefHeight="21.0" prefWidth="341.0" GridPane.columnIndex="2" GridPane.rowIndex="0">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <Label text="Nueva contraseña" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField prefHeight="25.0" prefWidth="122.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" text="Editar usuario" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="178.0" minWidth="10.0" prefWidth="50.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="318.0" minWidth="10.0" prefWidth="142.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="342.0" minWidth="10.0" prefWidth="342.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="177.0" minWidth="10.0" prefWidth="177.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </content>
+    </Tab>
+    <Tab text="Eliminar Usuario">
+      <content>
+        <GridPane>
+          <children>
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" text="Eliminar Usuario" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label alignment="CENTER" text="Nombre usuario" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <ComboBox prefHeight="21.0" prefWidth="330.0" GridPane.columnIndex="2" GridPane.rowIndex="0">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="176.0" minWidth="10.0" prefWidth="57.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="329.0" minWidth="10.0" prefWidth="147.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="382.0" minWidth="10.0" prefWidth="330.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="177.0" minWidth="10.0" prefWidth="177.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </content>
+    </Tab>
+    <Tab text="Crear Arma">
+      <content>
+        <GridPane>
+          <children>
+            <Label prefHeight="17.0" prefWidth="138.0" text="Nombre del Arma" GridPane.columnIndex="1" />
+            <TextField prefHeight="25.0" prefWidth="122.0" GridPane.columnIndex="2" />
+            <TextField prefHeight="25.0" prefWidth="122.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label prefHeight="17.0" prefWidth="138.0" text="Bonus Arma Atk" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Crear" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label prefHeight="17.0" prefWidth="138.0" text="Bonus Arma Def" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField prefHeight="25.0" prefWidth="122.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="55.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="359.0" minWidth="10.0" prefWidth="135.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="190.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="241.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints maxHeight="114.0" minHeight="0.0" prefHeight="68.0" vgrow="SOMETIMES" />
+            <RowConstraints fillHeight="false" maxHeight="209.0" minHeight="0.0" prefHeight="43.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="196.0" minHeight="0.0" prefHeight="36.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="92.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="157.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </content>
+    </Tab>
+    <Tab text="Modificar Arma">
+      <content>
+        <GridPane>
+          <children>
+            <Label prefHeight="17.0" prefWidth="138.0" text="Nombre del Arma" GridPane.columnIndex="1" />
+            <TextField prefHeight="25.0" prefWidth="122.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label prefHeight="17.0" prefWidth="138.0" text="Bonus Arma Atk" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Modificar" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label prefHeight="17.0" prefWidth="138.0" text="Bonus Arma Def" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField prefHeight="25.0" prefWidth="122.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <ComboBox prefHeight="21.0" prefWidth="212.0" GridPane.columnIndex="2" GridPane.rowIndex="0">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="55.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="359.0" minWidth="10.0" prefWidth="135.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="190.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="241.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints maxHeight="114.0" minHeight="0.0" prefHeight="68.0" vgrow="SOMETIMES" />
+            <RowConstraints fillHeight="false" maxHeight="209.0" minHeight="0.0" prefHeight="43.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="196.0" minHeight="0.0" prefHeight="36.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="92.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="157.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </content>
+    </Tab>
+    <Tab text="Eliminar Arma">
+      <content>
+        <GridPane blendMode="SRC_OVER" focusTraversable="false" mouseTransparent="false" visible="true">
+          <children>
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" text="Eliminar Arma" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label alignment="CENTER" text="Nombre Arma" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <ComboBox prefHeight="21.0" prefWidth="330.0" promptText="" GridPane.columnIndex="2" GridPane.rowIndex="0">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="176.0" minWidth="10.0" prefWidth="57.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="329.0" minWidth="10.0" prefWidth="147.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="382.0" minWidth="10.0" prefWidth="330.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="177.0" minWidth="10.0" prefWidth="177.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </content>
+    </Tab>
   </tabs>
 </TabPane>

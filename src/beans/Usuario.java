@@ -44,12 +44,12 @@ public abstract class Usuario implements Serializable {
         // TODO (o igual no)
     }
     
-    @Column(name="USUARIO_NOMBRE")
+    @Column(nullable = false, name="USUARIO_NOMBRE")
     public String getNombre() {
         return nombre;
     }
 
-    @Column(name="USUARIO_CLAVE")
+    @Column(nullable = false, name="USUARIO_CLAVE")
     public String getClave() {
         return clave;
     }

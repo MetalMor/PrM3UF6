@@ -1,93 +1,384 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
 <?import java.lang.*?>
+<?import javafx.collections.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="711.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="711.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
   <tabs>
     <Tab text="Crear Pesonaje">
-         <content>
-            <GridPane>
-              <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="55.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="359.0" minWidth="10.0" prefWidth="135.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="190.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="241.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints fillHeight="false" maxHeight="119.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="196.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Label prefHeight="17.0" prefWidth="138.0" text="Nombre del Personaje" GridPane.columnIndex="1" />
-                  <TextField prefHeight="25.0" prefWidth="122.0" GridPane.columnIndex="2" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Crear" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-               </children>
-            </GridPane>
-         </content></Tab>
-    <Tab text="Modificar Personaje" />
-      <Tab text="Eliminar Personaje">
-         <content>
-            <GridPane>
-              <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" text="Eliminar Personajes" GridPane.columnIndex="1" />
-               </children>
-            </GridPane>
-         </content>
-      </Tab>
-      <Tab text="Crear Equipo">
-         <content>
-            <GridPane>
-               <children>
-                  <Label prefHeight="17.0" prefWidth="138.0" text="Nombre del Equipo" GridPane.columnIndex="1" />
-                  <TextField prefHeight="25.0" prefWidth="122.0" GridPane.columnIndex="2" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Crear" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-               </children>
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="55.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="359.0" minWidth="10.0" prefWidth="135.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="190.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="241.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints fillHeight="false" maxHeight="119.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="196.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-            </GridPane>
-         </content>
-      </Tab>
-      <Tab text="Modificar Equipo" />
-      <Tab text="Eliminar Equipo">
-         <content>
-            <GridPane>
-               <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" text="Eliminar Equipo" GridPane.columnIndex="1" />
-               </children>
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-            </GridPane>
-         </content>
-      </Tab>
+      <content>
+        <GridPane>
+          <children>
+            <Label prefHeight="17.0" prefWidth="138.0" text="Nombre del Heroe" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField prefHeight="25.0" prefWidth="122.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label prefHeight="17.0" prefWidth="138.0" text="Ataque Heroe" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label prefHeight="17.0" prefWidth="138.0" text="Defensa Heroe" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label prefHeight="17.0" prefWidth="138.0" text="Medio" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label prefHeight="17.0" prefWidth="138.0" text="Raza" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Crear" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+            <Label prefHeight="17.0" prefWidth="138.0" text="Habilidad" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField prefHeight="25.0" prefWidth="122.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField prefHeight="25.0" prefWidth="122.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <ComboBox prefHeight="21.0" prefWidth="212.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <ComboBox prefHeight="21.0" prefWidth="212.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <ComboBox prefHeight="21.0" prefWidth="212.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <Label prefHeight="17.0" prefWidth="138.0" text="Arma" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <ComboBox prefHeight="21.0" prefWidth="212.0" GridPane.columnIndex="2" GridPane.rowIndex="7">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="55.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="359.0" minWidth="10.0" prefWidth="135.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="190.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="241.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints maxHeight="23.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints fillHeight="false" maxHeight="119.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+            <RowConstraints fillHeight="false" maxHeight="119.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+            <RowConstraints fillHeight="false" maxHeight="131.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="196.0" minHeight="9.0" prefHeight="34.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="198.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="198.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="225.0" minHeight="10.0" prefHeight="146.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </content>
+    </Tab>
+    <Tab text="Modificar Arma">
+      <content>
+        <GridPane>
+          <children>
+            <Label text="Cambiar Arma Heroe" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Nombre Heroe" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <ComboBox prefHeight="21.0" prefWidth="276.0" GridPane.columnIndex="2" GridPane.rowIndex="0">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <ComboBox prefHeight="21.0" prefWidth="275.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="67.0" text="Crear" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="237.0" minWidth="10.0" prefWidth="45.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="436.0" minWidth="10.0" prefWidth="197.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="571.0" minWidth="10.0" prefWidth="275.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="571.0" minWidth="10.0" prefWidth="194.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </content>
+    </Tab>
+    <Tab text="Eliminar Heroe">
+      <content>
+        <GridPane>
+          <children>
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" text="Eliminar Heroe" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label text="Nombre personaje" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            <ComboBox prefHeight="21.0" prefWidth="276.0" GridPane.columnIndex="2" GridPane.rowIndex="0">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <Label text="Nombre Heroe" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="177.0" minWidth="10.0" prefWidth="76.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="280.0" minWidth="10.0" prefWidth="182.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="316.0" minWidth="10.0" prefWidth="276.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="177.0" minWidth="10.0" prefWidth="177.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </content>
+    </Tab>
+    <Tab text="Crear Equipo">
+      <content>
+        <GridPane>
+          <children>
+            <Label prefHeight="17.0" prefWidth="138.0" text="Nombre del Equipo" GridPane.columnIndex="1" />
+            <TextField prefHeight="25.0" prefWidth="122.0" GridPane.columnIndex="2" />
+            <Label prefHeight="17.0" prefWidth="138.0" text="Heroe 1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label prefHeight="17.0" prefWidth="138.0" text="Heroe 2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label prefHeight="17.0" prefWidth="138.0" text="Heroe 3" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label prefHeight="17.0" prefWidth="138.0" text="Heroe 4" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ComboBox prefHeight="21.0" prefWidth="212.0" promptText="" GridPane.columnIndex="2" GridPane.rowIndex="1">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <ComboBox prefHeight="21.0" prefWidth="212.0" promptText="" GridPane.columnIndex="2" GridPane.rowIndex="2">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <ComboBox prefHeight="21.0" prefWidth="212.0" promptText="" GridPane.columnIndex="2" GridPane.rowIndex="3">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <ComboBox prefHeight="21.0" prefWidth="212.0" promptText="" GridPane.columnIndex="2" GridPane.rowIndex="4">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Crear Equipo" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <Label prefHeight="17.0" prefWidth="138.0" text="Lema" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField prefHeight="25.0" prefWidth="122.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="55.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="359.0" minWidth="10.0" prefWidth="135.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="190.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="241.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+            <RowConstraints fillHeight="false" maxHeight="119.0" minHeight="9.0" prefHeight="41.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </content>
+    </Tab>
+    <Tab text="Modificar Equipo">
+      <content>
+        <GridPane>
+          <children>
+            <Label prefHeight="17.0" prefWidth="138.0" text="Nombre del Equipo" GridPane.columnIndex="1" />
+            <Label prefHeight="17.0" prefWidth="138.0" text="Heroe 1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label prefHeight="17.0" prefWidth="138.0" text="Heroe 2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label prefHeight="17.0" prefWidth="138.0" text="Heroe 3" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label prefHeight="17.0" prefWidth="138.0" text="Heroe 4" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ComboBox prefHeight="21.0" prefWidth="212.0" promptText="" GridPane.columnIndex="2" GridPane.rowIndex="1">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <ComboBox prefHeight="21.0" prefWidth="212.0" promptText="" GridPane.columnIndex="2" GridPane.rowIndex="2">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <ComboBox prefHeight="21.0" prefWidth="212.0" promptText="" GridPane.columnIndex="2" GridPane.rowIndex="3">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <ComboBox prefHeight="21.0" prefWidth="212.0" promptText="" GridPane.columnIndex="2" GridPane.rowIndex="4">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Modificar Equipo" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <Label prefHeight="17.0" prefWidth="138.0" text="Lema" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField prefHeight="25.0" prefWidth="122.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <ComboBox prefHeight="21.0" prefWidth="212.0" promptText="" GridPane.columnIndex="2" GridPane.rowIndex="0">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="55.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="359.0" minWidth="10.0" prefWidth="135.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="190.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="241.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+            <RowConstraints fillHeight="false" maxHeight="119.0" minHeight="9.0" prefHeight="41.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </content>
+    </Tab>
+    <Tab text="Eliminar Equipo">
+      <content>
+        <GridPane>
+          <children>
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" text="Eliminar Equipo" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label text="Nombre personaje" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            <ComboBox prefHeight="21.0" prefWidth="276.0" GridPane.columnIndex="2" GridPane.rowIndex="0">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <Label text="Nombre Equipo" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="177.0" minWidth="10.0" prefWidth="76.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="280.0" minWidth="10.0" prefWidth="182.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="316.0" minWidth="10.0" prefWidth="276.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="177.0" minWidth="10.0" prefWidth="177.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </content>
+    </Tab>
+    <Tab text="Duelos">
+      <content>
+        <GridPane>
+          <children>
+            <Label prefHeight="17.0" prefWidth="138.0" text="Nombre equipo" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <ComboBox prefHeight="21.0" prefWidth="212.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <Label prefHeight="17.0" prefWidth="138.0" text="Nombre del Heroe" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ComboBox prefHeight="21.0" prefWidth="212.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <Label prefHeight="24.0" prefWidth="198.0" text="Combate individual" GridPane.columnIndex="2" GridPane.rowIndex="1">
+              <font>
+                <Font size="18.0" fx:id="x1" />
+              </font>
+            </Label>
+            <Label font="$x1" text="Combate Grupo" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Empezar combate" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Empezar combate" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.0" minWidth="10.0" prefWidth="55.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="359.0" minWidth="10.0" prefWidth="135.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="190.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="408.0" minWidth="10.0" prefWidth="241.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints maxHeight="23.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints fillHeight="false" maxHeight="119.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+            <RowConstraints fillHeight="false" maxHeight="119.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+            <RowConstraints fillHeight="false" maxHeight="131.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="196.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="196.0" minHeight="9.0" prefHeight="34.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="198.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="198.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="225.0" minHeight="10.0" prefHeight="146.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </content>
+    </Tab>
   </tabs>
 </TabPane>
