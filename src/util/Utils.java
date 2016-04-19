@@ -27,11 +27,6 @@ public class Utils {
         return System.currentTimeMillis();
     }
     
-    public static EntityManager crearEntityManager(String persUd) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory(persUd);
-        return emf.createEntityManager();
-    }
-    
     public static Servicio crearServicio(String persUd) {
         EntityManager em = crearEntityManager(persUd);
         switch(persUd) {
@@ -49,6 +44,11 @@ public class Utils {
                 return new ServicioUsuario(em);
         }
         return null;
+    }
+    
+    private static EntityManager crearEntityManager(String persUd) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory(persUd);
+        return emf.createEntityManager();
     }
     
 }

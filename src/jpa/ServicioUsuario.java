@@ -23,7 +23,9 @@ public class ServicioUsuario extends Servicio {
         Usuario u = new UsuarioRegular();
         u.setNombre(n);
         u.setClave(c);
+        getEm().getTransaction().begin();
         getEm().persist(u);
+        getEm().getTransaction().commit();
         return u;
     }
 

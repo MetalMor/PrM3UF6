@@ -24,7 +24,9 @@ public class ServicioAdmin extends Servicio {
             Usuario u = new UsuarioAdministrador();
             u.setNombre("root");
             u.setClave("roflmao1");
+            getEm().getTransaction().begin();
             getEm().persist(u);
+            getEm().getTransaction().commit();
             return u;
         //}
         //return null;

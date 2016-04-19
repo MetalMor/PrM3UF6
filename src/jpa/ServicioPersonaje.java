@@ -34,7 +34,9 @@ public class ServicioPersonaje extends Servicio {
         p.setRaza(raza);
         p.setHabilidad(hab);
         p.setPropietario(u);
+        getEm().getTransaction().begin();
         getEm().persist(p);
+        getEm().getTransaction().commit();
         return p;
     }
 

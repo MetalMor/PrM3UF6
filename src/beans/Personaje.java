@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import jpa.ServicioRanking;
 import props.Habilidad;
 import props.Medio;
 import props.Raza;
@@ -32,7 +33,6 @@ public class Personaje implements Serializable {
     private Long id;
     
     private UsuarioRegular propietario;
-    
     private String nombre;
     private int atk;
     private int def;
@@ -46,6 +46,8 @@ public class Personaje implements Serializable {
 
     public Personaje() { 
         //setId(Utils.generarId());
+        ServicioRanking sr = (ServicioRanking) Utils.crearServicio("ServicioRanking");
+        setRanking(sr.crear(0, 0, 0));
     }
     
     public boolean checkNull() {
@@ -67,7 +69,7 @@ public class Personaje implements Serializable {
         return def;
     }
 
-    @ManyToOne
+    @ManyToOne(optional = true)
     @JoinColumn(name="PERSONAJE_ARMAID")
     public Arma getArma() {
         return arma;
@@ -88,13 +90,13 @@ public class Personaje implements Serializable {
         return habilidad;
     }
     
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name="PERSONAJE_PROPIETRIOID")
     public UsuarioRegular getPropietario() {
         return propietario;
     }
 
-    @OneToOne
+    @OneToOne(optional = false)
     @JoinColumn(name="PERSONAJE_RANKINGID")
     public Ranking getRanking() {
         return ranking;
@@ -155,7 +157,7 @@ public class Personaje implements Serializable {
         propietario = ur;
     }
     
-    public void setRanking(Ranking r) {
+    public final void setRanking(Ranking r) {
         ranking = r;
     }
 

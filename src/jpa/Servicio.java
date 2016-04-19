@@ -17,6 +17,14 @@ public abstract class Servicio {
         setEm(em);
     }
     
+    public void beginTransaction() {
+        getEm().getTransaction().begin();
+    }
+    
+    public void commitTransaction() {
+        getEm().getTransaction().commit();
+    }
+    
     public EntityManager getEm() {
         return em;
     }

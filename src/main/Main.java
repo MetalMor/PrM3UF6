@@ -40,7 +40,6 @@ public class Main extends Application {
     public static void main(String[] args) {
         //launch(args);
         ServicioAdmin sa = (ServicioAdmin) Utils.crearServicio("ServicioAdmin");
-        sa.getEm().getTransaction().begin();
         UsuarioAdministrador admin = (UsuarioAdministrador) sa.crear();
         if (!Utils.isNull(admin)) {
             System.out.println(admin);
@@ -50,7 +49,6 @@ public class Main extends Application {
         admin.crearArma("Palo de la verdad", 1, 1);
         UsuarioRegular user = (UsuarioRegular)admin.crearUsuario("prueba", "prueba123");
         System.out.println(user.crearPersonaje("pepito", 1, 1, Medio.CUEVA, Raza.TEMMIE, Habilidad.NINGUNA, false));
-        sa.getEm().getTransaction().commit();
         System.out.println(admin.getSa().buscar(51));
     }
     

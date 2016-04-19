@@ -36,8 +36,8 @@ public class UsuarioRegular extends Usuario {
     private ServicioPersonaje sp;
     private ServicioEquipo se;
     
-    private List<Personaje> personajes;
-    private List<Equipo> equipos;
+    private List<Personaje> personajes = new ArrayList<>();
+    private List<Equipo> equipos = new ArrayList<>();
     
     public UsuarioRegular() {
         super();
