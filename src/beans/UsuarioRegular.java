@@ -62,7 +62,7 @@ public class UsuarioRegular extends Usuario {
     }
     
     public Personaje crearPersonaje(String n, int atk, int def, Medio medio, Raza raza, Habilidad hab, Arma a, boolean ready) {
-        return sp.crear(n, atk, def, medio, raza, hab, a, this);
+        return sp.crear(n, atk, def, medio, raza, hab, a, this, ready);
     }
     
     public Personaje cambiarArmaPersonaje(long id, Arma a) {
@@ -77,13 +77,13 @@ public class UsuarioRegular extends Usuario {
         return sp.listaPersonajes(this.getId());
     }
     
-    @OneToMany(cascade=CascadeType.PERSIST, mappedBy="propietario")
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="propietario")
     @JoinColumn(name="USUARIO_PERSONAJES")
     public List<Personaje> getPersonajes() {
         return personajes;
     }
     
-    @OneToMany(cascade=CascadeType.PERSIST, mappedBy="propietario")
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="propietario")
     @JoinColumn(name="USUARIO_EQUIPOS")
     public List<Equipo> getEquipos() {
         return equipos;

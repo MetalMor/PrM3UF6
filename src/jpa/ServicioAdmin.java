@@ -3,8 +3,6 @@ package jpa;
 import beans.Usuario;
 import beans.UsuarioAdministrador;
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
-import javax.persistence.TypedQuery;
 
 /**
  * Servicio de la unidad de persistencia para crear al usuario administrador en

@@ -54,7 +54,7 @@ public class Personaje implements Serializable {
         return Utils.isNull(this);
     }
     
-    @Column(unique = true, nullable = false, name="PERSONAJE_NOMBRE")
+    @Column(nullable = false, name="PERSONAJE_NOMBRE")
     public String getNombre() {
         return nombre;
     }
@@ -91,13 +91,13 @@ public class Personaje implements Serializable {
     }
     
     @ManyToOne(optional = false)
-    @JoinColumn(name="PERSONAJE_PROPIETRIOID")
+    @JoinColumn(name="PERSONAJE_PROPIETRIO")
     public UsuarioRegular getPropietario() {
         return propietario;
     }
 
     @OneToOne(optional = false)
-    @JoinColumn(name="PERSONAJE_RANKINGID")
+    @JoinColumn(name="PERSONAJE_RANKING")
     public Ranking getRanking() {
         return ranking;
     }

@@ -25,7 +25,7 @@ public class ServicioPersonaje extends Servicio {
         super(em);
     }
     
-    public Personaje crear(String n, int atk, int def, Medio medio, Raza raza, Habilidad hab, Arma a, UsuarioRegular u) {
+    public Personaje crear(String n, int atk, int def, Medio medio, Raza raza, Habilidad hab, Arma a, UsuarioRegular u, boolean ready) {
         Personaje p = new Personaje();
         p.setNombre(n);
         p.setAtk(atk);
@@ -35,6 +35,7 @@ public class ServicioPersonaje extends Servicio {
         p.setHabilidad(hab);
         p.setPropietario(u);
         p.setArma(a);
+        p.setReady(ready);
         getEm().getTransaction().begin();
         getEm().persist(p);
         getEm().getTransaction().commit();
