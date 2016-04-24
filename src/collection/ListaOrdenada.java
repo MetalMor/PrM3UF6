@@ -29,7 +29,7 @@ public class ListaOrdenada<T> extends ArrayList {
      */
     public ListaOrdenada(Collection c) {
         super(c);
-        //this.sort(rc); // TODO Comparator
+        this.sort(new RankingComparator());
     }
     
 }
