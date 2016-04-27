@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import beans.Arma;
+import beans.Equipo;
 import beans.UsuarioRegular;
 import props.Habilidad;
 import props.Medio;
@@ -56,6 +57,14 @@ public class ServicioPersonaje extends Servicio {
         Personaje p = buscar(id);
         if (!p.checkNull()) {
             p.setArma(a);
+        }
+        return p;
+    }
+    
+    public Personaje cambiarEquipo(long id, Equipo e) {
+        Personaje p = buscar(id);
+        if(!p.checkNull()) {
+            p.setEquipo(e);
         }
         return p;
     }

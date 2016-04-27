@@ -6,6 +6,7 @@ import beans.UsuarioRegular;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import util.Utils;
 
 /**
  * Servicio de la unidad de persistencia que permite a un usuario regular organizar
@@ -20,11 +21,10 @@ public class ServicioEquipo extends Servicio {
         super(em);
     }
     
-    public Equipo crear(List<Personaje> personajes, String n, String lema, UsuarioRegular u) {
+    public Equipo crear(String n, String lema, UsuarioRegular u) {
         Equipo e = new Equipo();
         e.setNombre(n);
         e.setLema(lema);
-        e.setMiembros(personajes);
         e.setPropietario(u);
         getEm().getTransaction().begin();
         getEm().persist(e);
@@ -36,10 +36,22 @@ public class ServicioEquipo extends Servicio {
         return getEm().find(Equipo.class, id);
     }
     
+    public Equipo addMiembro(long id, Personaje p) {
+        Equipo e = buscar(id);
+        if(!e.checkNull())
+            e.getMiembros().add(p);
+        return e;
+    }
+    
     public Equipo cambiarMiembros(long id, List<Personaje> personajes) {
         Equipo e = buscar(id);
         if(!e.checkNull())
             e.setMiembros(personajes);
+        ServicioPersonaje sp;
+        for (Personaje p: personajes) {
+            sp = (ServicioPersonaje) Utils.crearServicio("ServicioPersonaje");
+            sp.cambiarEquipo(p.getId(), e);
+        }
         return e;
     }
     
