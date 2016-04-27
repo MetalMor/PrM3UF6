@@ -19,8 +19,8 @@ public class ServicioUsuario extends Servicio {
         super(em);
     }
 
-    public Usuario crear(String n, String c) {
-        Usuario u = new UsuarioRegular();
+    public UsuarioRegular crear(String n, String c) {
+        UsuarioRegular u = new UsuarioRegular();
         u.setNombre(n);
         u.setClave(c);
         getEm().getTransaction().begin();

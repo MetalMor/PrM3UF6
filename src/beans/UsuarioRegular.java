@@ -33,48 +33,11 @@ import util.Utils;
 @DiscriminatorValue(value = "R")
 public class UsuarioRegular extends Usuario {
     
-    private ServicioPersonaje sp;
-    private ServicioEquipo se;
-    
     private List<Personaje> personajes = new ArrayList<>();
     private List<Equipo> equipos = new ArrayList<>();
     
     public UsuarioRegular() {
         super();
-        setSp((ServicioPersonaje) Utils.crearServicio("ServicioPersonaje"));
-        setSe((ServicioEquipo) Utils.crearServicio("ServicioEquipo"));
-    }
-    
-    public Equipo crearEquipo(List<Personaje> personajes, String n, String lema) {
-        return se.crear(personajes, n, lema, this);
-    }
-    
-    public Equipo cambiarEquipo(long id, List<Personaje> personajes) {
-        return se.cambiarMiembros(id, personajes);
-    }
-    
-    public void eliminarEquipo(long id) {
-        se.eliminar(id);
-    }
-    
-    public List<Equipo> listaEquipos() {
-        return se.listaEquipos(this.getId());
-    }
-    
-    public Personaje crearPersonaje(String n, int atk, int def, Medio medio, Raza raza, Habilidad hab, Arma a, boolean ready) {
-        return sp.crear(n, atk, def, medio, raza, hab, a, this, ready);
-    }
-    
-    public Personaje cambiarArmaPersonaje(long id, Arma a) {
-        return sp.cambiarArma(id, a);
-    }
-    
-    public void eliminarPersonaje(Personaje p) {
-        sp.eliminar(p.getId());
-    }
-    
-    private List<Personaje> listaPersonajes() {
-        return sp.listaPersonajes(this.getId());
     }
     
     @OneToMany(cascade=CascadeType.ALL, mappedBy="propietario")
@@ -87,24 +50,6 @@ public class UsuarioRegular extends Usuario {
     @JoinColumn(name="USUARIO_EQUIPOS")
     public List<Equipo> getEquipos() {
         return equipos;
-    }
-
-    @Transient
-    public ServicioPersonaje getSp() {
-        return sp;
-    }
-
-    @Transient
-    public ServicioEquipo getSe() {
-        return se;
-    }
-
-    public final void setSp(ServicioPersonaje sp) {
-        this.sp = sp;
-    }
-
-    public final void setSe(ServicioEquipo se) {
-        this.se = se;
     }
     
     public void setPersonajes(List<Personaje> pers) {
