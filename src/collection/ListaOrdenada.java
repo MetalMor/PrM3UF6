@@ -23,7 +23,7 @@ public class ListaOrdenada<T> extends ArrayList {
     public ListaOrdenada() { }
 
     /**
-     * Constructor a partir d'una colecció predefinida.
+     * Constructor a partir d'una col·lecció predefinida.
      * 
      * @param c Objecte que implementa la interfície Collection.
      */
