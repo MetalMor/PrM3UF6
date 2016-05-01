@@ -11,6 +11,7 @@ import beans.UsuarioRegular;
 import props.Habilidad;
 import props.Medio;
 import props.Raza;
+import util.Utils;
 
 /**
  * Servicio de la unidad de persistencia que permite a un usuario regular organizar
@@ -37,6 +38,7 @@ public class ServicioPersonaje extends Servicio {
         p.setArma(a);
         p.setReady(ready);
         p.setSp(this);
+        p.setRanking(((ServicioRanking) Utils.crearServicio("ServicioRanking")).crear(0, 0, 0));
         getEm().getTransaction().begin();
         getEm().persist(p);
         getEm().getTransaction().commit();

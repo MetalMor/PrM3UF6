@@ -50,8 +50,8 @@ public class Personaje implements Serializable {
 
     public Personaje() { 
         //setId(Utils.generarId());
-        ServicioRanking sr = (ServicioRanking) Utils.crearServicio("ServicioRanking");
-        setRanking(sr.crear(0, 0, 0));
+        /*ServicioRanking sr = (ServicioRanking) Utils.crearServicio("ServicioRanking");
+        setRanking(sr.crear(0, 0, 0));*/
     }
     
     public boolean checkNull() {
