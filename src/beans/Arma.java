@@ -14,6 +14,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import jpa.ServicioArma;
 import util.Utils;
 
 /**
@@ -36,6 +38,8 @@ public class Arma implements Serializable {
     private String nombre;
     private int atk;
     private int def;
+    
+    private ServicioArma sa;
 //    private Image imagen;
 
     public Arma() {
@@ -66,10 +70,18 @@ public class Arma implements Serializable {
         return personajes;
     }
     
+    @Transient
+    public ServicioArma getSa() {
+        return sa;
+    }
+
     /*@Column(name="ARMA_IMAGEN")
     public Image getImagen() {
-        return imagen;
+    return imagen;
     }*/
+    public void setSa(ServicioArma sa) {
+        this.sa = sa;
+    }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;

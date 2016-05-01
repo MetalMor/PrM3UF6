@@ -17,11 +17,12 @@ public class ServicioAdmin extends Servicio {
         super(em);
     }
     
-    public Usuario crear() {
+    public UsuarioAdministrador crear() {
         //if (!existeAdmin()) {
-            Usuario u = new UsuarioAdministrador();
+            UsuarioAdministrador u = new UsuarioAdministrador();
             u.setNombre("root");
             u.setClave("roflmao1");
+            u.setSa(this);
             getEm().getTransaction().begin();
             getEm().persist(u);
             getEm().getTransaction().commit();

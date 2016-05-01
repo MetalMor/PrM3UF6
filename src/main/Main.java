@@ -40,9 +40,20 @@ public class Main extends Application {
     public static void main(String[] args) {
         
         //launch(args);
-        ServicioAdmin sa = (ServicioAdmin) Utils.crearServicio("ServicioAdmin");
-        UsuarioAdministrador admin = (UsuarioAdministrador) sa.crear();
-        if (!Utils.isNull(admin)) {
+        
+        // Hola
+        // Creas un servicio como pongo aqui.
+        // Desde el servicio llamas a la funcion crear, mirate los parámetros q
+        // tiene cada una antes de ponerselos a lo loco, algunos campos no pueden
+        // ser null. Los que te pone por defecto no tienen por qué estar bien.
+        // Todos los objetos tienen un toString, si los printas como hago con el
+        // admin podras ver por pantalla si salen los datos bien.
+        // Para ver la base de datos acuerdate de q en el netbeans le puedes
+        // hacer queries si vas a la pestaña "services" donde el arbol de proyectos.
+        ServicioAdmin sa = (ServicioAdmin) Utils.crearServicio("ServicioAdmin"); // creo servicio
+        UsuarioAdministrador admin = (UsuarioAdministrador) sa.crear(); // creo admin
+        System.out.println(admin); // printo admin
+        /*if (!Utils.isNull(admin)) {
             System.out.println(admin);
         } else {
             System.out.println("Admin = null");
@@ -52,7 +63,7 @@ public class Main extends Application {
         System.out.println(user.crearPersonaje("pepito", 1, 1, Medio.CUEVA, Raza.TEMMIE, Habilidad.NINGUNA, null, true));
         System.out.println(user.crearPersonaje("juanito", 1, 1, Medio.MAR, Raza.ELFO, Habilidad.VELOCIDAD, null, true));
         System.out.println(user.crearPersonaje("jorgito", 1, 1, Medio.BOSQUE, Raza.TROLL, Habilidad.KAITO, null, true));
-        System.out.println(user.crearPersonaje("pedrito", 1, 1, Medio.FUEGO, Raza.ORCO, Habilidad.NINGUNA, null, true));
+        System.out.println(user.crearPersonaje("pedrito", 1, 1, Medio.FUEGO, Raza.ORCO, Habilidad.NINGUNA, null, true));*/
 
     }
     

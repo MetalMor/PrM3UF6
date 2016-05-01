@@ -14,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import jpa.ServicioEquipo;
 import util.Utils;
 
 /**
@@ -34,6 +36,8 @@ public class Equipo implements Serializable {
     private String lema;
     private UsuarioRegular propietario;
     private List<Personaje> miembros = new ArrayList<>();
+    
+    private ServicioEquipo se;
     
     public Equipo() {
         //setId(Utils.generarId());
@@ -77,6 +81,15 @@ public class Equipo implements Serializable {
     @Column(nullable = false, name="EQUIPO_LEMA")
     public String getLema() {
         return lema;
+    }
+
+    @Transient
+    public ServicioEquipo getSe() {
+        return se;
+    }
+
+    public void setSe(ServicioEquipo se) {
+        this.se = se;
     }
 
     public void setNombre(String nombre) {

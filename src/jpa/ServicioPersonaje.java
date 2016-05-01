@@ -36,6 +36,7 @@ public class ServicioPersonaje extends Servicio {
         p.setPropietario(u);
         p.setArma(a);
         p.setReady(ready);
+        p.setSp(this);
         getEm().getTransaction().begin();
         getEm().persist(p);
         getEm().getTransaction().commit();

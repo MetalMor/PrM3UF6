@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import jpa.ServicioPersonaje;
 import jpa.ServicioRanking;
 import props.Habilidad;
 import props.Medio;
@@ -43,6 +45,8 @@ public class Personaje implements Serializable {
     private boolean ready;
     private Ranking ranking;
     private Equipo equipo;
+    
+    private ServicioPersonaje sp;
 
     public Personaje() { 
         //setId(Utils.generarId());
@@ -111,6 +115,15 @@ public class Personaje implements Serializable {
     @JoinColumn(name="PERSONAJE_EQUIPO")
     public Equipo getEquipo() {
         return equipo;
+    }
+
+    @Transient
+    public ServicioPersonaje getSp() {
+        return sp;
+    }
+
+    public void setSp(ServicioPersonaje sp) {
+        this.sp = sp;
     }
 
     public void setEquipo(Equipo equipo) {
