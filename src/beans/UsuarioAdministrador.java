@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Transient;
+import jpa.ServicioAdmin;
 import jpa.ServicioArma;
 import jpa.ServicioUsuario;
 import util.Utils;
@@ -25,8 +26,19 @@ import util.Utils;
 @DiscriminatorValue(value = "A")
 public class UsuarioAdministrador extends Usuario {
     
+    private ServicioAdmin sa;
+    
     public UsuarioAdministrador() {
         super();
+    }
+
+    @Transient
+    public ServicioAdmin getSa() {
+        return sa;
+    }
+
+    public void setSa(ServicioAdmin sa) {
+        this.sa = sa;
     }
     
 }

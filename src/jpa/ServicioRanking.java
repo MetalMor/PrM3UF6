@@ -21,6 +21,7 @@ public class ServicioRanking extends Servicio {
         r.setVictorias(victorias);
         r.setEmpates(empates);
         r.setDerrotas(derrotas);
+        r.setSr(this);
         getEm().getTransaction().begin();
         getEm().persist(r);
         getEm().getTransaction().commit();

@@ -26,6 +26,7 @@ public class ServicioEquipo extends Servicio {
         e.setNombre(n);
         e.setLema(lema);
         e.setPropietario(u);
+        e.setSe(this);
         getEm().getTransaction().begin();
         getEm().persist(e);
         getEm().getTransaction().commit();

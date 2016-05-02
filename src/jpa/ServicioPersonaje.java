@@ -40,6 +40,8 @@ public class ServicioPersonaje extends Servicio {
         p.setArma(a);
         p.setRanking(sr.crear(0, 0, 0));
         p.setReady(ready);
+        p.setSp(this);
+        p.setRanking(((ServicioRanking) Utils.crearServicio("ServicioRanking")).crear(0, 0, 0));
         getEm().getTransaction().begin();
         getEm().persist(p);
         getEm().getTransaction().commit();

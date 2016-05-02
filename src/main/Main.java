@@ -48,48 +48,19 @@ public class Main extends Application {
      */
     public static void main(String[] args) {
         //launch(args);
-        try {
-            ServicioAdmin sad = (ServicioAdmin) Utils.crearServicio("ServicioAdmin");
-            ServicioPersonaje sp1 = (ServicioPersonaje) Utils.crearServicio("ServicioPersonaje");
-            ServicioPersonaje sp2 = (ServicioPersonaje) Utils.crearServicio("ServicioPersonaje");
-            ServicioPersonaje sp3 = (ServicioPersonaje) Utils.crearServicio("ServicioPersonaje");
-            ServicioPersonaje sp4 = (ServicioPersonaje) Utils.crearServicio("ServicioPersonaje");
-            ServicioArma sar1 = (ServicioArma) Utils.crearServicio("ServicioArma");
-            ServicioArma sar2 = (ServicioArma) Utils.crearServicio("ServicioArma");
-            ServicioEquipo se1 = (ServicioEquipo) Utils.crearServicio("ServicioEquipo");
-            ServicioEquipo se2 = (ServicioEquipo) Utils.crearServicio("ServicioEquipo");
-            ServicioUsuario su1 = (ServicioUsuario) Utils.crearServicio("ServicioUsuario");
-            ServicioUsuario su2 = (ServicioUsuario) Utils.crearServicio("ServicioUsuario");
-
-            UsuarioAdministrador admin = sad.crear();
-
-            UsuarioRegular usr1 = su1.crear("edgar", "prueba123");
-            List<Personaje> list1 = new ArrayList<>();
-            UsuarioRegular usr2 = su2.crear("joel", "prueba123");
-            List<Personaje> list2 = new ArrayList<>();
-
-            Arma a1 = sar1.crear("Palo", 2, 0);
-            Arma a2 = sar2.crear("Tapa de la basura", 0, 2);
-
-            Personaje p1 = sp1.crear("Marielfo", 1, 2, Medio.MAR, Raza.ELFO, Habilidad.VELOCIDAD, a1, usr1, true);
-            list1.add(p1);
-            Personaje p2 = sp2.crear("Gorko", 2, 1, Medio.CUEVA, Raza.ORCO, Habilidad.NINGUNA, a2, usr1, true);
-            list1.add(p2);
-            Personaje p3 = sp3.crear("Trololololó", 1, 2, Medio.FUEGO, Raza.TROLL, Habilidad.KAITO, a1, usr2, true);
-            list2.add(p3);
-            Personaje p4 = sp4.crear("tEMMIE!", 2, 1, Medio.BOSQUE, Raza.TEMMIE, Habilidad.NINGUNA, a2, usr2, true);
-            list2.add(p4);
-
-            Equipo e1 = se1.crear("Petadores de anos", "esaekalo", usr1);
-            e1 = se1.cambiarMiembros(e1.getId(), list1);
-            Equipo e2 = se2.crear("Los cortapichas", "olakease", usr2);
-            e2 = se2.cambiarMiembros(e2.getId(), list2);
-
-            System.out.println("OK");
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("NOPE");
-        }
+        
+        // Hola
+        // Creas un servicio como pongo aqui.
+        // Desde el servicio llamas a la funcion crear, mirate los parámetros q
+        // tiene cada una antes de ponerselos a lo loco, algunos campos no pueden
+        // ser null. Los que te pone por defecto no tienen por qué estar bien.
+        // Todos los objetos tienen un toString, si los printas como hago con el
+        // admin podras ver por pantalla si salen los datos bien.
+        // Para ver la base de datos acuerdate de q en el netbeans le puedes
+        // hacer queries si vas a la pestaña "services" donde el arbol de proyectos.
+        ServicioAdmin sa = (ServicioAdmin) Utils.crearServicio("ServicioAdmin"); // creo servicio
+        UsuarioAdministrador admin = (UsuarioAdministrador) sa.crear(); // creo admin
+        System.out.println(admin); // printo admin
         
     }
     

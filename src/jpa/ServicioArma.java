@@ -24,6 +24,7 @@ public class ServicioArma extends Servicio {
         a.setNombre(n);
         a.setAtk(atk);
         a.setDef(def);
+        a.setSa(this);
 //        a.setImagen(img);
         getEm().getTransaction().begin();
         getEm().persist(a);

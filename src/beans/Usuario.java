@@ -1,6 +1,7 @@
 package beans;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
@@ -90,7 +91,7 @@ public abstract class Usuario implements Serializable {
             Usuario other = (Usuario) o;
             return Utils.isNull(this.getId()) || Utils.isNull(other.getId()) ? 
                     this.getNombre().equals(other.getNombre()) : 
-                    this.getId() == other.getId();
+                    Objects.equals(this.getId(), other.getId());
         }
         return false;
     }

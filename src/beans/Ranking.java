@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import jpa.ServicioRanking;
 import util.Utils;
 
 /**
@@ -32,6 +34,8 @@ public class Ranking implements Serializable, Comparable {
     private int derrotas;
     private Personaje propietario;
     private long propId;
+    
+    private ServicioRanking sr;
 
     public Ranking() { 
         //setId(Utils.generarId());
@@ -96,6 +100,15 @@ public class Ranking implements Serializable, Comparable {
 
     public void setDerrotas(int derrotas) {
         this.derrotas = derrotas;
+    }
+
+    @Transient
+    public ServicioRanking getSr() {
+        return sr;
+    }
+
+    public void setSr(ServicioRanking sr) {
+        this.sr = sr;
     }
     
     @Id

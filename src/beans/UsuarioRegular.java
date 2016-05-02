@@ -16,6 +16,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Transient;
 import jpa.ServicioEquipo;
 import jpa.ServicioPersonaje;
+import jpa.ServicioUsuario;
 import props.Habilidad;
 import props.Medio;
 import props.Raza;
@@ -32,6 +33,8 @@ import util.Utils;
 @Access(AccessType.PROPERTY)
 @DiscriminatorValue(value = "R")
 public class UsuarioRegular extends Usuario {
+    
+    private ServicioUsuario su;
     
     private List<Personaje> personajes = new ArrayList<>();
     private List<Equipo> equipos = new ArrayList<>();
@@ -58,6 +61,15 @@ public class UsuarioRegular extends Usuario {
     
     public void setEquipos(List<Equipo> eqp) {
         equipos = eqp;
+    }
+
+    @Transient
+    public ServicioUsuario getSu() {
+        return su;
+    }
+
+    public void setSu(ServicioUsuario su) {
+        this.su = su;
     }
     
 }
