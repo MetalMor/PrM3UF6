@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import beans.Arma;
 import beans.Equipo;
+import beans.Ranking;
 import beans.UsuarioRegular;
 import props.Habilidad;
 import props.Medio;
@@ -27,8 +28,7 @@ public class ServicioPersonaje extends Servicio {
         super(em);
     }
     
-    public Personaje crear(String n, int atk, int def, Medio medio, Raza raza, Habilidad hab, Arma a, UsuarioRegular u, boolean ready) {
-        ServicioRanking sr = (ServicioRanking) Utils.crearServicio("ServicioRanking");
+    public Personaje crear(String n, int atk, int def, Medio medio, Raza raza, Habilidad hab, UsuarioRegular u, boolean ready) {
         Personaje p = new Personaje();
         p.setNombre(n);
         p.setAtk(atk);
@@ -37,11 +37,10 @@ public class ServicioPersonaje extends Servicio {
         p.setRaza(raza);
         p.setHabilidad(hab);
         p.setPropietario(u);
-        p.setArma(a);
-        p.setRanking(sr.crear(0, 0, 0));
+        Ranking r = ((ServicioRanking) Utils.crearServicio("ServicioRanking")).crear(0, 0, 0, p);
+        p.setRanking(r);
         p.setReady(ready);
         p.setSp(this);
-        p.setRanking(((ServicioRanking) Utils.crearServicio("ServicioRanking")).crear(0, 0, 0));
         getEm().getTransaction().begin();
         getEm().persist(p);
         getEm().getTransaction().commit();

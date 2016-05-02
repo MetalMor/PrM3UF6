@@ -3,6 +3,7 @@ package beans;
 import java.io.Serializable;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +16,8 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import jpa.ServicioPersonaje;
 import jpa.ServicioRanking;
+import org.eclipse.persistence.annotations.JoinFetch;
+import org.eclipse.persistence.annotations.JoinFetchType;
 import props.Habilidad;
 import props.Medio;
 import props.Raza;
@@ -58,6 +61,19 @@ public class Personaje implements Serializable {
         return Utils.isNull(this);
     }
     
+    public void eliminar() {
+        getSp().eliminar(getId());
+    }
+    
+    public void cambiarArma(Arma a) {
+        //a.equipar(this);
+        getSp().cambiarArma(getId(), a);
+    }
+    
+    public void cambiarEquipo(Equipo e) {
+        getSp().cambiarEquipo(getId(), e);
+    }
+    
     @Column(nullable = false, name="PERSONAJE_NOMBRE")
     public String getNombre() {
         return nombre;
@@ -73,8 +89,8 @@ public class Personaje implements Serializable {
         return def;
     }
 
-    @ManyToOne(optional = true)
-    @JoinColumn(name="PERSONAJE_ARMAID")
+    @ManyToOne(optional = true, cascade = CascadeType.PERSIST)
+    @JoinColumn(name="PERSONAJE_ARMA")
     public Arma getArma() {
         return arma;
     }
@@ -94,13 +110,13 @@ public class Personaje implements Serializable {
         return habilidad;
     }
     
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, cascade = CascadeType.PERSIST)
     @JoinColumn(name="PERSONAJE_PROPIETRIO")
     public UsuarioRegular getPropietario() {
         return propietario;
     }
 
-    @OneToOne(optional = false)
+    @OneToOne(optional = false, cascade = CascadeType.PERSIST)
     @JoinColumn(name="PERSONAJE_RANKING")
     public Ranking getRanking() {
         return ranking;
@@ -111,7 +127,7 @@ public class Personaje implements Serializable {
         return ready;
     }
 
-    @ManyToOne(optional = true)
+    @ManyToOne(optional = true, cascade = CascadeType.PERSIST)
     @JoinColumn(name="PERSONAJE_EQUIPO")
     public Equipo getEquipo() {
         return equipo;

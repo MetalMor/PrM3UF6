@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import beans.Arma;
+import beans.Personaje;
 
 /**
  * Servicio de la unidad de persistencia para crear/modificar/eliminar armas,
@@ -44,7 +45,7 @@ public class ServicioArma extends Servicio {
     }
     
     public Arma cambiarStats(long id, String n, int atk, int def) {
-        Arma a = getEm().find(Arma.class, id);
+        Arma a = buscar(id);
         if (!a.checkNull()) {
             a.setNombre(n);
             a.setAtk(atk);
@@ -53,6 +54,14 @@ public class ServicioArma extends Servicio {
         }
         return a;
     }
+    
+    /*public Arma añadePersonaje(long id, Personaje p) {
+        Arma a = buscar(id);
+        if (!a.checkNull()) {
+            a.getPersonajes().add(p);
+        }
+        return a;
+    }*/
     
     public List<Arma> listaArmas() {
         TypedQuery<Arma> query = getEm().createQuery(

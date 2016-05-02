@@ -1,5 +1,6 @@
 package jpa;
 
+import beans.Personaje;
 import beans.Ranking;
 import javax.persistence.EntityManager;
 
@@ -16,11 +17,12 @@ public class ServicioRanking extends Servicio {
         super(em);
     }
     
-    public Ranking crear(int victorias, int empates, int derrotas) {
+    public Ranking crear(int victorias, int empates, int derrotas, Personaje p) {
         Ranking r = new Ranking();
         r.setVictorias(victorias);
         r.setEmpates(empates);
         r.setDerrotas(derrotas);
+        r.setPropietario(p);
         r.setSr(this);
         getEm().getTransaction().begin();
         getEm().persist(r);

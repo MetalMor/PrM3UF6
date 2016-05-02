@@ -34,22 +34,31 @@ import util.Utils;
 @DiscriminatorValue(value = "R")
 public class UsuarioRegular extends Usuario {
     
-    private ServicioUsuario su;
     
     private List<Personaje> personajes = new ArrayList<>();
     private List<Equipo> equipos = new ArrayList<>();
+    
+    private ServicioUsuario su;
     
     public UsuarioRegular() {
         super();
     }
     
-    @OneToMany(cascade=CascadeType.ALL, mappedBy="propietario")
+    public void eliminar() {
+        getSu().eliminar(getId());
+    }
+    
+    public void editar(String n, String c) {
+        getSu().editar(getId(), n, c);
+    }
+    
+    @OneToMany(mappedBy="propietario")
     @JoinColumn(name="USUARIO_PERSONAJES")
     public List<Personaje> getPersonajes() {
         return personajes;
     }
     
-    @OneToMany(cascade=CascadeType.ALL, mappedBy="propietario")
+    @OneToMany(mappedBy="propietario")
     @JoinColumn(name="USUARIO_EQUIPOS")
     public List<Equipo> getEquipos() {
         return equipos;

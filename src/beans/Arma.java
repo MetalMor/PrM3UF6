@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -34,7 +35,7 @@ public class Arma implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
     
-    private List<Personaje> personajes = new ArrayList<>();
+    //private List<Personaje> personajes = new ArrayList<>();
     private String nombre;
     private int atk;
     private int def;
@@ -46,6 +47,18 @@ public class Arma implements Serializable {
         //setId(Utils.generarId());
     }
 
+    public void eliminar() {
+        getSa().eliminar(getId());
+    }
+    
+    public void editar(String n, int a, int d) {
+        getSa().cambiarStats(getId(), n, a, d);
+    }
+    
+    /*public void equipar(Personaje p) {
+        getSa().añadePersonaje(getId(), p);
+    }*/
+    
     public boolean checkNull() {
         return Utils.isNull(this);
     }
@@ -65,10 +78,11 @@ public class Arma implements Serializable {
         return def;
     }
 
-    @OneToMany(cascade=CascadeType.PERSIST, mappedBy="arma")
+    /*@OneToMany(cascade=CascadeType.PERSIST, mappedBy="arma")
+    @JoinColumn(name = "ARMA_PERSONAJES")
     public List<Personaje> getPersonajes() {
         return personajes;
-    }
+    }*/
     
     @Transient
     public ServicioArma getSa() {
@@ -99,9 +113,9 @@ public class Arma implements Serializable {
 //        this.imagen = imagen;
 //    }
 
-    public void setPersonajes(List<Personaje> personajes) {
+    /*public void setPersonajes(List<Personaje> personajes) {
         this.personajes = personajes;
-    }
+    }*/
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

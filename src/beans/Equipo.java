@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -43,6 +44,14 @@ public class Equipo implements Serializable {
         //setId(Utils.generarId());
     }
     
+    public void eliminar() {
+        getSe().eliminar(getId());
+    }
+    
+    public void cambiarMiembros(List<Personaje> m) {
+        getSe().cambiarMiembros(getId(), m);
+    }
+    
     public int calculaPotencial() {
         int sum = 0;
         for (Personaje miembro : getMiembros()) {
@@ -66,13 +75,13 @@ public class Equipo implements Serializable {
         return nombre;
     }
     
-    @OneToMany(mappedBy="equipo")
+    @OneToMany(mappedBy="equipo", cascade = CascadeType.PERSIST)
     @JoinColumn(name="EQUIPO_MIEMBROS")
     public List<Personaje> getMiembros() {
         return miembros;
     }
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="EQUIPO_PROPIETARIO")
     public UsuarioRegular getPropietario() {
         return propietario;

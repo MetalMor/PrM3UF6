@@ -3,6 +3,7 @@ package beans;
 import java.io.Serializable;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,7 +34,6 @@ public class Ranking implements Serializable, Comparable {
     private int empates;
     private int derrotas;
     private Personaje propietario;
-    private long propId;
     
     private ServicioRanking sr;
 
@@ -53,18 +53,26 @@ public class Ranking implements Serializable, Comparable {
         setEmpates(getEmpates()+1);
     }
     
+    public void victoria() {
+        getSr().victoria(getId());
+    }
+    
+    public void derrota() {
+        getSr().derrota(getId());
+    }
+    
+    public void empate() {
+        getSr().empate(getId());
+    }
+    
     public boolean checkNull() {
         return Utils.isNull(this);
     }
 
-    @OneToOne(mappedBy="ranking")
+    @OneToOne(mappedBy="ranking", cascade = CascadeType.PERSIST)
     @JoinColumn(name="RANKING_PROPIETARIO")
     public Personaje getPropietario() {
         return propietario;
-    }
-
-    public long getPropId() {
-        return propId;
     }
     
     @Column(nullable = false, name="RANKING_VICTORIAS")
@@ -84,10 +92,6 @@ public class Ranking implements Serializable, Comparable {
 
     public void setPropietario(Personaje propietario) {
         this.propietario = propietario;
-    }
-
-    public void setPropId(long propId) {
-        this.propId = propId;
     }
 
     public void setVictorias(int victorias) {
